@@ -1,45 +1,13 @@
 import { serialize } from 'next-mdx-remote/serialize';
-import { MDXRemote } from 'next-mdx-remote';
+import InterfaceMain from "../../components/InterfaceMain";
 import Layout from '../../components/Layout';
-import NoSSR from "../../components/NoSSR";
-import { useEffect, useState } from "react";
-import Link from 'next/link'
+import { Octokit } from "octokit";
 
-import { useRouter } from "next/router";
-
-const components = {}
-
-function Guide({ steps }) {
-  const router = useRouter()
-  const segments = router.asPath.split('#')
-  let stepSlug = segments[1] ? segments[1] : 'start'
-  const hasStep = steps.findIndex(step => step.slug === stepSlug) > -1
-  if (!hasStep) {
-    stepSlug = 'start'
-    // TODO: remove unfound hash from url
-  }
-  const [content, setContent] = useState(steps.find(step => step.slug === stepSlug))
-  useEffect(() => {
-    const onHashChangeStart = (url) => {
-      const hash = url.split('#')[1]
-      setContent(steps.find(step => step.slug === hash))
-    };
-    router.events.on("hashChangeStart", onHashChangeStart);
-    return () => {
-      router.events.off("hashChangeStart", onHashChangeStart);
-    };
-  }, [router.events, steps]);
+function Guide({ files, steps }) {
 
   return (
     <Layout>
-      {steps.map(step =>
-        <Link key={step.slug} href={`${segments[0]}#${step.slug}`}>
-          <a>{step.slug}</a>
-        </Link>
-      )}
-      <NoSSR>
-        { <MDXRemote {...content} components={components} /> }
-      </NoSSR>
+      <InterfaceMain files={files} steps={steps} />
     </Layout>
   );
 }
@@ -61,22 +29,39 @@ export async function getStaticPaths() {
   };
 }
 
+const octokit = new Octokit({
+  auth: process.env.GH_PAT
+})
+
+async function getCode(owner, repo, files) {
+  const data = await Promise.all(files.map(path => octokit.request('GET /repos/{owner}/{repo}/contents/{path}', { owner, repo, path })))
+  return data.map(item => {
+    let buff = new Buffer(item.data.content, 'base64')
+    return {
+      path: item.data.path,
+      content: buff.toString('ascii')
+    }
+  })
+}
+
+async function loadStepContent(tutorial, step) {
+  const md = fs.readFileSync(`walkthru/${tutorial}/${step}.md`, 'utf8')
+  const content = await serialize(md, { parseFrontmatter: true })
+  content.slug = step
+  return content
+}
+
 export async function getStaticProps({ params }) {
   const tutorial = params.slug
   const json = fs.readFileSync(`walkthru/${tutorial}/config.json`, 'utf8');
   const config = JSON.parse(json)
-  async function loadStepContent(step) {
-    const md = fs.readFileSync(`walkthru/${tutorial}/${step}.md`, 'utf8')
-    const content = await serialize(md, { parseFrontmatter: true })
-    content.slug = step
-    return content
-  }
+  const files = await getCode(config.code.owner, config.code.repo, config.code.files)
   const steps = []
-  steps.push(await loadStepContent('start'))
+  steps.push(await loadStepContent(tutorial, 'start'))
   for await (const step of config.steps) {
-    steps.push(await loadStepContent(step))
+    steps.push(await loadStepContent(tutorial, step))
   }
-  return { props: { steps } }
+  return { props: { files, steps } }
 }
 
 export default Guide

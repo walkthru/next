@@ -1,4 +1,12 @@
 {
+  "code": {
+    "owner": "course-kit",
+    "repo": "client",
+    "files": [
+      "lib/createApi.js",
+      "lib/createCache.js"
+    ]
+  },
   "steps": [
     "test",
     "test2"
