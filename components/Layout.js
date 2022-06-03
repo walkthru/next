@@ -1,6 +1,10 @@
 function Layout({ children }) {
   return (
-    <div className="px-8">{ children }</div>
+    <div className="bg-stone-50 h-screen flex flex-col">
+      <header className="flex-none">Header</header>
+      <div className="overflow-hidden">{ children }</div>
+      <footer className="flex-none">Footer</footer>
+    </div>
   )
 }
 

@@ -9,23 +9,31 @@ pre[data-file]::before {
   right: 0;
 }
 
-code[class*="language-"] {
-  font-size: 0.8rem;
-  line-height: 1.5;
+#code-wrapper {
+  font-size: 0.7rem;
+  line-height: 1.6;
   font-family: Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif;
 }
 
-code[class*="language-"] .__line:not(.__highlighted),
-code[class*="language-"] .__line:not(.__highlighted) span {
-  color: black
+#code-wrapper .__line:not(.__highlighted),
+#code-wrapper .__line:not(.__highlighted) span {
+  opacity: 0.9;
+  -webkit-transition: opacity 100ms linear;
+  -ms-transition: opacity 100ms linear;
+  transition: opacity 100ms linear;
 }
 
-code[class*="language-"] .__line .__line-number {
+#code-wrapper:not(:hover) .__line:not(.__highlighted),
+#code-wrapper:not(:hover) .__line:not(.__highlighted) span {
+  opacity: 0.5;
+}
+
+#code-wrapper .__line .__line-number {
   display: inline-flex;
   justify-content: center;
   width: 4rem;
 }
 
-code[class*="language-"] .__line.__highlighted {
-  background: black;
+#code-wrapper .__line.__highlighted {
+  background: #100d0b;
 }

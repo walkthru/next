@@ -18,20 +18,28 @@ function InterfaceCode({ files, active, focus, center }) {
     const count = codeEl.querySelectorAll('.__line-number').length
     if (count > 1) {
       const lineHeight = codeEl.offsetHeight / count
-      console.log(`codeHeight: ${codeEl.offsetHeight}`)
-      console.log(`count: ${count}`)
-      console.log(`lineHeight: ${lineHeight}`)
-      console.log(`center: ${center}`)
       animateScroll.scrollTo((lineHeight * center) - (preEl.offsetHeight / 2), {
         containerId: 'code',
-        duration: 500
+        duration: 300
       })
     }
   }, [content, center])
   return(
-    <pre className="rounded h-full bg-slate-700 overflow-y-scroll" id="code">
-      <code className="language-javascript" dangerouslySetInnerHTML={{__html: content}} />
-    </pre>
+    <div className="rounded bg-stone-900 flex flex-col w-full" id="code-wrapper">
+      <div className="rounded-t px-6 py-2 bg-stone-800">
+        <ul className="flex gap-2 justify-end">
+          {files.map(file =>
+            <li
+              key={file.path}
+              className={`cursor-pointer text-xs rounded px-2 ${file.path === active ? 'bg-stone-600 text-stone-200' : 'text-stone-400 hover:bg-stone-700'}`
+            }>{file.path}</li>
+          )}
+        </ul>
+      </div>
+      <pre className="overflow-y-scroll" id="code">
+        <code className="language-javascript" dangerouslySetInnerHTML={{__html: content}} />
+      </pre>
+    </div>
   )
 }
 

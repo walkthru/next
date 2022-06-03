@@ -14,11 +14,15 @@ function InterfaceMain({ files, steps }) {
     stepSlug = 'start'
     // TODO: remove unfound hash from url
   }
-  const [content, setContent] = useState(steps.find(step => step.slug === stepSlug))
+  const stepIndex = steps.findIndex(step => step.slug === stepSlug)
+  const [step, setStep] = useState(steps[stepIndex])
+  const [nextStep, setNextStep] = useState(steps[stepIndex + 1])
   useEffect(() => {
     const onHashChangeStart = (url) => {
       const hash = url.split('#')[1]
-      setContent(steps.find(step => step.slug === hash))
+      const stepIndex = steps.findIndex(step => step.slug === hash)
+      setStep(steps[stepIndex])
+      setNextStep(steps[stepIndex + 1])
     };
     router.events.on("hashChangeStart", onHashChangeStart);
     return () => {
@@ -26,21 +30,19 @@ function InterfaceMain({ files, steps }) {
     };
   }, [router.events, steps]);
   return (
-    <>
-      <div className="flex gap-8 h-96">
-        <div className="w-1/3 flex flex-col h-full overflow-hidden">
-          <NoSSR>
-            <InterfaceSelect tutorialSlug={segments[0]} stepSlug={stepSlug} steps={steps} />
-            <InterfaceContent content={content} />
-          </NoSSR>
-        </div>
-        <div className="w-2/3 flex flex-col h-full flex-initial">
-          <NoSSR>
-            <InterfaceCode files={files} active={content.frontmatter.file} key={`${content.frontmatter.file}-${content.frontmatter.focus}`} focus={content.frontmatter.focus} center={content.frontmatter.center} />
-          </NoSSR>
-        </div>
+    <div className="flex gap-4">
+      <div className="w-1/3 flex flex-col">
+        <NoSSR>
+          <InterfaceSelect tutorialSlug={segments[0]} key={step.slug} stepSlug={step.slug} steps={steps} />
+          <InterfaceContent content={step} tutorialSlug={segments[0]} nextStepSlug={nextStep ? nextStep.slug : null} />
+        </NoSSR>
       </div>
-    </>
+      <div className="w-2/3 flex">
+        <NoSSR>
+          <InterfaceCode files={files} active={step.frontmatter.file} key={`${step.frontmatter.file}-${step.frontmatter.focus}`} focus={step.frontmatter.focus} center={step.frontmatter.center} />
+        </NoSSR>
+      </div>
+    </div>
   )
 }
 

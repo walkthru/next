@@ -7,7 +7,7 @@ function Guide({ files, steps }) {
 
   return (
     <Layout>
-      <div className="">
+      <div className="flex h-full">
         <InterfaceMain files={files} steps={steps} />
       </div>
     </Layout>
