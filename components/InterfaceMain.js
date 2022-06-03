@@ -27,16 +27,16 @@ function InterfaceMain({ files, steps }) {
   }, [router.events, steps]);
   return (
     <>
-      <div className="grid grid-cols-3">
-        <div className="col-span-1">
+      <div className="flex gap-8 h-96">
+        <div className="w-1/3 flex flex-col h-full overflow-hidden">
           <NoSSR>
             <InterfaceSelect tutorialSlug={segments[0]} stepSlug={stepSlug} steps={steps} />
             <InterfaceContent content={content} />
           </NoSSR>
         </div>
-        <div className="col-span-2">
+        <div className="w-2/3 flex flex-col h-full flex-initial">
           <NoSSR>
-            <InterfaceCode files={files} active={content.frontmatter.file} key={`${content.frontmatter.file}-${content.frontmatter.focus}`} focus={content.frontmatter.focus} />
+            <InterfaceCode files={files} active={content.frontmatter.file} key={`${content.frontmatter.file}-${content.frontmatter.focus}`} focus={content.frontmatter.focus} center={content.frontmatter.center} />
           </NoSSR>
         </div>
       </div>

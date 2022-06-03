@@ -7,7 +7,9 @@ function Guide({ files, steps }) {
 
   return (
     <Layout>
-      <InterfaceMain files={files} steps={steps} />
+      <div className="">
+        <InterfaceMain files={files} steps={steps} />
+      </div>
     </Layout>
   );
 }

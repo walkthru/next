@@ -1,7 +1,8 @@
 ---
-title: start
+title: Introduction
 file: lib/createCache.js
-focus: 7-13
+focus: 30-39
+center: 34
 ---
 
 Lorem markdownum diffudere revelli, fecit viae hunc inputet

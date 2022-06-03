@@ -1,7 +1,8 @@
 ---
-title: test2
+title: Creating the API
 file: lib/createCache.js
 focus: 9
+center: 9
 ---
 
 Ita famulosque litora, balteus vidit virtusque ab terga comites qui intus.

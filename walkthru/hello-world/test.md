@@ -1,7 +1,8 @@
 ---
-title: test,
+title: Setting up files
 file: lib/createApi.js
-focus: 8,14
+focus: 51-59
+center: 55
 ---
 
 Lorem markdownum sedes tympana. Vi vocavit usque honore protegit **stabat** in

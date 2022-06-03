@@ -1,6 +1,6 @@
 function Layout({ children }) {
   return (
-    <div>{ children }</div>
+    <div className="px-8">{ children }</div>
   )
 }
 

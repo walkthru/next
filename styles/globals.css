@@ -9,9 +9,23 @@ pre[data-file]::before {
   right: 0;
 }
 
-pre[class*="language-"],
 code[class*="language-"] {
   font-size: 0.8rem;
   line-height: 1.5;
   font-family: Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif;
+}
+
+code[class*="language-"] .__line:not(.__highlighted),
+code[class*="language-"] .__line:not(.__highlighted) span {
+  color: black
+}
+
+code[class*="language-"] .__line .__line-number {
+  display: inline-flex;
+  justify-content: center;
+  width: 4rem;
+}
+
+code[class*="language-"] .__line.__highlighted {
+  background: black;
 }
