@@ -30,7 +30,7 @@ function InterfaceMain({ files, steps }) {
     };
   }, [router.events, steps]);
   return (
-    <div className="flex gap-4">
+    <div className="flex gap-4 w-full">
       <div className="w-1/3 flex flex-col">
         <NoSSR>
           <InterfaceSelect tutorialSlug={segments[0]} key={step.slug} stepSlug={step.slug} steps={steps} />
