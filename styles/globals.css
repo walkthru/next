@@ -10,7 +10,7 @@ pre[data-file]::before {
 }
 
 #code-wrapper {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   line-height: 1.6;
   font-family: Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif;
 }

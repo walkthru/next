@@ -2,28 +2,42 @@ import { useEffect, useState } from "react"
 import prism from 'prismjs'
 import 'prismjs/components/prism-javascript'
 import addLineFormatting from '../src/lines.js'
-import {animateScroll} from 'react-scroll'
+import { animateScroll } from 'react-scroll'
 
-function InterfaceCode({ files, active, focus, center }) {
-  const file = files.find(file => file.path === active)
-  const [content, setContent] = useState(file.content)
+function scrollNewCenter(center) {
+  const preEl = document.querySelector('#code')
+  const codeEl = document.querySelector('#code > code')
+  const count = codeEl.querySelectorAll('.__line-number').length
+  if (count > 1) {
+    const lineHeight = codeEl.offsetHeight / count
+    const scrollPos = (lineHeight * center) - (preEl.offsetHeight / 2)
+    animateScroll.scrollTo(scrollPos, {
+      containerId: 'code',
+      duration: 500
+    })
+  }
+}
+
+function InterfaceCode({ files, active, focus, center, sameFile }) {
+  const [content, setContent] = useState('')
+  const [prevScrollPos, setPrevScrollPos] = useState(0)
   useEffect(() => {
     const file = files.find(file => file.path === active)
     const highlighted = prism.highlight(file.content, prism.languages.javascript)
     setContent(addLineFormatting(highlighted, focus.toString()))
   }, [files, active, focus, center]);
   useEffect(() => {
-    const preEl = document.querySelector('#code')
-    const codeEl = document.querySelector('#code > code')
-    const count = codeEl.querySelectorAll('.__line-number').length
-    if (count > 1) {
-      const lineHeight = codeEl.offsetHeight / count
-      animateScroll.scrollTo((lineHeight * center) - (preEl.offsetHeight / 2), {
+    let scrollPos = 0
+    if (sameFile) {
+      animateScroll.scrollTo(prevScrollPos, {
         containerId: 'code',
-        duration: 300
+        duration: 0
       })
+      scrollPos = document.querySelector('#code').scrollTop
     }
-  }, [content, center])
+    scrollNewCenter(center)
+    setPrevScrollPos(scrollPos)
+  }, [content, center, prevScrollPos, sameFile])
   return(
     <div className="rounded bg-stone-900 flex flex-col w-full" id="code-wrapper">
       <div className="rounded-t px-6 py-2 bg-stone-800">

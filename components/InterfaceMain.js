@@ -15,6 +15,7 @@ function InterfaceMain({ files, steps }) {
     // TODO: remove unfound hash from url
   }
   const stepIndex = steps.findIndex(step => step.slug === stepSlug)
+  const [lastStepFile, setLastStepFile] = useState('')
   const [step, setStep] = useState(steps[stepIndex])
   const [nextStep, setNextStep] = useState(steps[stepIndex + 1])
   useEffect(() => {
@@ -23,6 +24,9 @@ function InterfaceMain({ files, steps }) {
       const stepIndex = steps.findIndex(step => step.slug === hash)
       setStep(steps[stepIndex])
       setNextStep(steps[stepIndex + 1])
+      if (stepIndex > 0) {
+        setLastStepFile(steps[stepIndex - 1].frontmatter.file)
+      }
     };
     router.events.on("hashChangeStart", onHashChangeStart);
     return () => {
@@ -33,13 +37,19 @@ function InterfaceMain({ files, steps }) {
     <div className="flex gap-4 w-full">
       <div className="w-1/3 flex flex-col">
         <NoSSR>
-          <InterfaceSelect tutorialSlug={segments[0]} key={step.slug} stepSlug={step.slug} steps={steps} />
+          <InterfaceSelect tutorialSlug={segments[0]} stepSlug={step.slug} steps={steps} />
           <InterfaceContent content={step} tutorialSlug={segments[0]} nextStepSlug={nextStep ? nextStep.slug : null} />
         </NoSSR>
       </div>
       <div className="w-2/3 flex">
         <NoSSR>
-          <InterfaceCode files={files} active={step.frontmatter.file} key={`${step.frontmatter.file}-${step.frontmatter.focus}`} focus={step.frontmatter.focus} center={step.frontmatter.center} />
+          <InterfaceCode
+            files={files}
+            active={step.frontmatter.file}
+            focus={step.frontmatter.focus}
+            center={step.frontmatter.center}
+            sameFile={step.frontmatter.file === lastStepFile}
+          />
         </NoSSR>
       </div>
     </div>
