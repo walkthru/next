@@ -3,7 +3,7 @@ import {useRouter} from "next/router";
 
 const components = {}
 
-function InterfaceContent({ content, tutorialSlug, nextStepSlug }) {
+function WTContent({ content, tutorialSlug, nextStepSlug }) {
   const router = useRouter()
   function next() {
     router.push(`${tutorialSlug}#${nextStepSlug}`)
@@ -18,4 +18,4 @@ function InterfaceContent({ content, tutorialSlug, nextStepSlug }) {
   )
 }
 
-export default InterfaceContent
+export default WTContent
