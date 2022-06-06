@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
 import Select from 'react-select'
+import { useState, useEffect } from 'react'
 
 function WTSelect({ tutorialSlug, stepSlug, steps, title, classes }) {
   const router = useRouter()
@@ -10,7 +11,7 @@ function WTSelect({ tutorialSlug, stepSlug, steps, title, classes }) {
       router.push(tutorialSlug)
     }
   }
-  const options = [
+  const [options] = useState([
     {
       label: title,
       options: steps.map((step, index) => ({
@@ -18,17 +19,21 @@ function WTSelect({ tutorialSlug, stepSlug, steps, title, classes }) {
         label: `${index + 1}. ${step.frontmatter.title}`,
       })),
     },
-  ]
-
+  ])
+  const [value, setValue] = useState(
+    options[0].options.find((o) => o.value === stepSlug)
+  )
+  useEffect(() => {
+    setValue(options[0].options.find((o) => o.value === stepSlug))
+  }, [stepSlug, options])
   const selectStyles = {
     fontSize: '0.75rem',
     color: 'hsl(0, 0%, 20%)',
   }
-
   return (
     <Select
       className={classes}
-      defaultValue={options[0].options.find((o) => o.value === stepSlug)}
+      value={value}
       onChange={navigate}
       options={options}
       styles={{

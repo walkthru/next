@@ -1,0 +1,16 @@
+{
+  "title": "Setting up Walkthru with Next.js",
+  "code": {
+    "owner": "walkthru",
+    "repo": "next",
+    "files": [
+      "pages/[slug].js",
+      "walkthru/walkthru-next/config.json"
+    ]
+  },
+  "steps": [
+    "start",
+    "test2",
+    "test"
+  ]
+}

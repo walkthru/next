@@ -6,9 +6,9 @@ import Layout from '../components/Layout'
 function App({ code, instructions, config }) {
   const router = useRouter()
   const segments = router.asPath.split('#')
-  let step = segments[1] ? segments[1] : null
-  if (step && instructions.find((s) => s.slug === step) === undefined) {
-    step = null
+  let step = segments[1] ? segments[1] : config.steps[0]
+  if (config.steps.find((slug) => slug === step) === undefined) {
+    step = config.steps[0]
   }
   const [tutorialSlug, setTutorialSlug] = useState(segments[0].substring(1))
   const [stepSlug, setStepSlug] = useState(step)
@@ -16,27 +16,16 @@ function App({ code, instructions, config }) {
     document.title = config.title
   }, [config])
   useEffect(() => {
-    const segments = router.asPath.split('#')
-    const hash = segments[1]
-    if (
-      stepSlug === null &&
-      hash !== undefined &&
-      instructions.find((s) => s.slug === hash) === undefined
-    ) {
-      router.push(tutorialSlug)
-    }
-  }, [router, stepSlug, instructions, tutorialSlug])
-  useEffect(() => {
     const onHashChangeStart = (url) => {
       const segments = url.split('#')
       setTutorialSlug(segments[0])
-      setStepSlug(segments[1] ? segments[1] : null)
+      setStepSlug(segments[1] ? segments[1] : config.steps[0])
     }
     router.events.on('hashChangeStart', onHashChangeStart)
     return () => {
       router.events.off('hashChangeStart', onHashChangeStart)
     }
-  }, [router.events])
+  }, [router.events, config])
   return (
     <Layout>
       <div className="flex h-full">
@@ -59,7 +48,7 @@ function App({ code, instructions, config }) {
 // This gets called at build time
 
 import fs from 'fs'
-import loadTutorial from '../components/WalkThru/loadTutorial'
+import getData from '../components/WalkThru/getData'
 
 export async function getStaticPaths() {
   const paths = fs
@@ -77,8 +66,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const ghpat = process.env.GH_PAT
-  const { code, instructions, config } = await loadTutorial(params.slug, ghpat)
+  const githubToken = process.env.GH_PAT
+  const { code, instructions, config } = await getData(params.slug, githubToken)
   return { props: { code, instructions, config } }
 }
 

@@ -27,11 +27,11 @@ async function loadStepContent(tutorial, step) {
   const mod = await import(`/walkthru/${tutorial}/${step}.md`)
   const md = mod.default
   const content = await serialize(md, { parseFrontmatter: true })
-  content.slug = step === 'start' ? null : step
+  content.slug = step
   return content
 }
 
-async function loadTutorial(name, ghpat) {
+async function getData(name, ghpat) {
   const mod = await import(`/walkthru/${name}/config.json`)
   const config = mod.default
   const code = await getCode(
@@ -41,11 +41,10 @@ async function loadTutorial(name, ghpat) {
     ghpat
   )
   const instructions = []
-  instructions.push(await loadStepContent(name, 'start'))
   for await (const step of config.steps) {
     instructions.push(await loadStepContent(name, step))
   }
   return { code, instructions, config }
 }
 
-export default loadTutorial
+export default getData
