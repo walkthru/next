@@ -1,5 +1,5 @@
-import {useRouter} from "next/router";
-import Select from 'react-select';
+import { useRouter } from 'next/router'
+import Select from 'react-select'
 
 function WTSelect({ tutorialSlug, stepSlug, steps, title }) {
   const router = useRouter()
@@ -10,20 +10,25 @@ function WTSelect({ tutorialSlug, stepSlug, steps, title }) {
       router.push(tutorialSlug)
     }
   }
-  const options = [{
-    label: title,
-    options: steps.map((step, index) => ({ value: step.slug, label: `${index + 1}. ${step.frontmatter.title}` }))
-  }]
+  const options = [
+    {
+      label: title,
+      options: steps.map((step, index) => ({
+        value: step.slug,
+        label: `${index + 1}. ${step.frontmatter.title}`,
+      })),
+    },
+  ]
 
   const selectStyles = {
     fontSize: '0.75rem',
-    color: 'hsl(0, 0%, 20%)'
+    color: 'hsl(0, 0%, 20%)',
   }
 
   return (
     <Select
       className="mb-3 text-xs"
-      defaultValue={options[0].options.find(o => o.value === stepSlug)}
+      defaultValue={options[0].options.find((o) => o.value === stepSlug)}
       onChange={navigate}
       options={options}
       styles={{
@@ -32,14 +37,14 @@ function WTSelect({ tutorialSlug, stepSlug, steps, title }) {
           ...selectStyles,
           'input:focus': {
             boxShadow: 'none',
-            borderColor: 'inherit'
-          }
+            borderColor: 'inherit',
+          },
         }),
         control: (base) => ({
           ...base,
           ...selectStyles,
           boxShadow: 'none',
-          borderColor: 'inherit'
+          borderColor: 'inherit',
         }),
         groupHeading: () => {
           return {
@@ -48,7 +53,7 @@ function WTSelect({ tutorialSlug, stepSlug, steps, title }) {
             paddingBottom: '0.75rem',
             textTransform: 'none',
             margin: '0 12px 0.75rem 12px',
-            fontWeight: 'bold'
+            fontWeight: 'bold',
           }
         },
       }}

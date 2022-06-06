@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import WalkThru from "../components/WalkThru/WTMain";
-import Layout from '../components/Layout';
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
+import WalkThru from '../components/WalkThru/WTMain'
+import Layout from '../components/Layout'
 
 function App({ code, instructions, config }) {
   const router = useRouter()
   const segments = router.asPath.split('#')
   let step = segments[1] ? segments[1] : null
-  if (step && instructions.find(s => s.slug === step) === undefined) {
+  if (step && instructions.find((s) => s.slug === step) === undefined) {
     step = null
   }
   const [tutorialSlug, setTutorialSlug] = useState(segments[0].substring(1))
@@ -18,7 +18,11 @@ function App({ code, instructions, config }) {
   useEffect(() => {
     const segments = router.asPath.split('#')
     const hash = segments[1]
-    if (stepSlug === null && hash !== undefined && instructions.find(s => s.slug === hash) === undefined) {
+    if (
+      stepSlug === null &&
+      hash !== undefined &&
+      instructions.find((s) => s.slug === hash) === undefined
+    ) {
       router.push(tutorialSlug)
     }
   }, [router, stepSlug, instructions, tutorialSlug])
@@ -27,12 +31,12 @@ function App({ code, instructions, config }) {
       const segments = url.split('#')
       setTutorialSlug(segments[0])
       setStepSlug(segments[1] ? segments[1] : null)
-    };
-    router.events.on("hashChangeStart", onHashChangeStart);
+    }
+    router.events.on('hashChangeStart', onHashChangeStart)
     return () => {
-      router.events.off("hashChangeStart", onHashChangeStart);
-    };
-  }, [router.events]);
+      router.events.off('hashChangeStart', onHashChangeStart)
+    }
+  }, [router.events])
   return (
     <Layout>
       <div className="flex h-full">
@@ -45,27 +49,27 @@ function App({ code, instructions, config }) {
         />
       </div>
     </Layout>
-  );
+  )
 }
 
 // This gets called at build time
 
-import fs from 'fs';
-import loadTutorial from "../components/WalkThru/loadTutorial";
+import fs from 'fs'
+import loadTutorial from '../components/WalkThru/loadTutorial'
 
 export async function getStaticPaths() {
-  const paths = fs.readdirSync(`walkthru`, { withFileTypes: true })
-    .filter(dirent => dirent.isDirectory())
-    .map(dirent => ({
-        params: {
-          slug: dirent.name
-        }
-      })
-    )
+  const paths = fs
+    .readdirSync(`walkthru`, { withFileTypes: true })
+    .filter((dirent) => dirent.isDirectory())
+    .map((dirent) => ({
+      params: {
+        slug: dirent.name,
+      },
+    }))
   return {
     paths,
     fallback: false,
-  };
+  }
 }
 
 export async function getStaticProps({ params }) {

@@ -1,47 +1,47 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from 'react'
 import { animateScroll } from 'react-scroll'
-import GithubIcon from "./GithubIcon";
-import style from "./WTCode.module.css"
-import Highlight, { defaultProps } from "prism-react-renderer"
-import theme from "prism-react-renderer/themes/okaidia";
-import styled from "styled-components"
+import GithubIcon from './GithubIcon'
+import style from './WTCode.module.css'
+import Highlight, { defaultProps } from 'prism-react-renderer'
+import theme from 'prism-react-renderer/themes/okaidia'
+import styled from 'styled-components'
 
 const Pre = styled.pre`
   overflow-y: scroll;
   margin: 0;
   padding: 0;
-`;
+`
 
 const Line = styled.div`
-  opacity: ${props => props.highlighted ? '1;' :'0.5;'}
+  opacity: ${(props) => (props.highlighted ? '1;' : '0.5;')}
   -webkit-transition: opacity 100ms linear;
   -ms-transition: opacity 100ms linear;
   transition: opacity 100ms linear;
-  background-color: ${props => props.highlighted ? '#100d0b;' : 'rgb(28 25 23);'}
+  background-color: ${(props) =>
+    props.highlighted ? '#100d0b;' : 'rgb(28 25 23);'}
   &:hover {
     background-color: #292524;
   }
   ${Pre}:hover & {
-    opacity: ${props => props.highlighted ? '1;' :'0.9;'}
+    opacity: ${(props) => (props.highlighted ? '1;' : '0.9;')}
   }
-`;
+`
 
 const LineContent = styled.span`
-  opacity: ${props => props.highlighted ? '1;' :'0.5;'}
+  opacity: ${(props) => (props.highlighted ? '1;' : '0.5;')}
   -webkit-transition: opacity 100ms linear;
   -ms-transition: opacity 100ms linear;
   transition: opacity 100ms linear;
   ${Pre}:hover & {
-    opacity: ${props => props.highlighted ? '1;' :'0.9;'}
+    opacity: ${(props) => (props.highlighted ? '1;' : '0.9;')}
   }
-`;
+`
 
 const LineNo = styled.span`
   display: inline-flex;
   justify-content: center;
   width: 3rem;
-`;
-
+`
 
 function getHighlightedLines(focus) {
   if (focus.length === 0) {
@@ -66,10 +66,10 @@ function scrollNewCenter(center) {
   const count = codeEl.querySelectorAll('.__line-no').length
   if (count > 1) {
     const lineHeight = codeEl.offsetHeight / count
-    const scrollPos = (lineHeight * center) - (preEl.offsetHeight / 2)
+    const scrollPos = lineHeight * center - preEl.offsetHeight / 2
     animateScroll.scrollTo(scrollPos, {
       containerId: 'code',
-      duration: 500
+      duration: 500,
     })
   }
 }
@@ -77,41 +77,52 @@ function scrollNewCenter(center) {
 function WTCode({ files, active, focus, center, sameFile, config }) {
   const [content, setContent] = useState('')
   const [prevScrollPos, setPrevScrollPos] = useState(0)
-  const file = files.find(file => file.path === active)
+  const file = files.find((file) => file.path === active)
   const [activeFile, setActiveFile] = useState(file)
   const highlightedLines = getHighlightedLines(focus.toString())
   useEffect(() => {
     // const highlighted = prism.highlight(activeFile.content, prism.languages.javascript)
     // setContent(addLineFormatting(highlighted, focus.toString()))
-  }, [activeFile, active, focus, center]);
+  }, [activeFile, active, focus, center])
   useEffect(() => {
     let scrollPos = 0
     if (sameFile) {
       animateScroll.scrollTo(prevScrollPos, {
         containerId: 'code',
-        duration: 0
+        duration: 0,
       })
       scrollPos = document.querySelector('#code').scrollTop
     }
     scrollNewCenter(center)
     setPrevScrollPos(scrollPos)
   }, [content, center, prevScrollPos, sameFile])
-  return(
+  return (
     <div id="code-wrapper" className={style.codeWrapper}>
       <div className={style.codeFiles}>
         <ul>
-          {files.map(file =>
+          {files.map((file) => (
             <li
               key={file.path}
               className={file.path === active ? style.fileActive : ''}
-            >{file.path}</li>
-          )}
+            >
+              {file.path}
+            </li>
+          ))}
         </ul>
-        <a href={`https://github.com/${config.code.owner}/${config.code.repo}/blob/master/${activeFile.path}`} target="_blank" rel="noreferrer">
+        <a
+          href={`https://github.com/${config.code.owner}/${config.code.repo}/blob/master/${activeFile.path}`}
+          target="_blank"
+          rel="noreferrer"
+        >
           <GithubIcon />
         </a>
       </div>
-      <Highlight {...defaultProps} theme={theme} code={activeFile.content} language={activeFile.path.split('.').pop()}>
+      <Highlight
+        {...defaultProps}
+        theme={theme}
+        code={activeFile.content}
+        language={activeFile.path.split('.').pop()}
+      >
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <Pre id="code" className={className}>
             <code>
@@ -128,9 +139,7 @@ function WTCode({ files, active, focus, center, sameFile, config }) {
                       if (highlightedLines.indexOf(i + 1) > -1) {
                         tokenProps.highlighted = true
                       }
-                      return (
-                        <LineContent {...tokenProps} key={key} />
-                      )
+                      return <LineContent {...tokenProps} key={key} />
                     })}
                   </Line>
                 )
@@ -138,7 +147,7 @@ function WTCode({ files, active, focus, center, sameFile, config }) {
             </code>
           </Pre>
         )}
-      </Highlight>,
+      </Highlight>
     </div>
   )
 }
