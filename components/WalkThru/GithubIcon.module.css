@@ -1,0 +1,9 @@
+.ghicon {
+  fill: #d6d3d1;
+  width: 1rem;
+  height: 1rem;
+}
+
+.ghicon:hover {
+  fill: #e7e5e4;
+}
