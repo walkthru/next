@@ -133,14 +133,16 @@ function WTCode({ files, active, focus, center, sameFile, config }) {
                   lineProps.highlighted = true
                 }
                 return (
-                  <Line {...lineProps} key={i}>
-                    <LineNo className="__line-no">{i + 1}</LineNo>
+                  <Line {...lineProps} key={i.toString()}>
+                    <LineNo className="__line-no" key={i.toString()}>
+                      {i + 1}
+                    </LineNo>
                     {line.map((token, key) => {
                       const tokenProps = getTokenProps({ token, key })
                       if (highlightedLines.indexOf(i + 1) > -1) {
                         tokenProps.highlighted = true
                       }
-                      return <LineContent {...tokenProps} key={key} />
+                      return <LineContent {...tokenProps} key={`${i}-${key}`} />
                     })}
                   </Line>
                 )

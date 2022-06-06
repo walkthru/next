@@ -6,7 +6,9 @@ function Layout({ children }) {
           WalkThru Next Demo
         </h1>
       </header>
-      <div className="overflow-hidden p-8 bg-gray-50 flex-auto">{children}</div>
+      <div className="overflow-hidden p-4 md:p-8 bg-gray-50 flex-auto">
+        {children}
+      </div>
       <footer className="flex-none bg-gray-200 py-2">
         <div className="text-center text-xs text-gray-500">
           WalkThru Next Demo &copy; 2022

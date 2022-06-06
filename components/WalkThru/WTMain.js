@@ -9,15 +9,38 @@ const Wrapper = styled.div`
   gap: 1rem;
   width: 100%;
   display: flex;
+  @media (max-width: 639px) {
+    flex-wrap: wrap;
+  }
 `
+
 const ColLeft = styled.div`
   display: flex;
   flex-direction: column;
-  width: 33.333333%;
+  @media (max-width: 639px) {
+    width: 100%;
+    max-height: 50%;
+  }
+  @media (min-width: 640px) and (max-width: 767px) {
+    width: 50%;
+  }
+  @media (min-width: 768px) {
+    width: 33.3%;
+  }
 `
+
 const ColRight = styled.div`
   display: flex;
-  width: 66.666666%;
+  @media (max-width: 639px) {
+    width: 100%;
+    height: 50%;
+  }
+  @media (min-width: 640px) and (max-width: 767px) {
+    width: 50%;
+  }
+  @media (min-width: 768px) {
+    width: 66.6%;
+  }
 `
 
 function WTMain({
