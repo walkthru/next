@@ -1,5 +1,4 @@
 import { Octokit } from "octokit";
-import fs from "fs";
 import { serialize } from "next-mdx-remote/serialize";
 
 async function getCode(owner, repo, files, ghpat) {
@@ -17,15 +16,16 @@ async function getCode(owner, repo, files, ghpat) {
 }
 
 async function loadStepContent(tutorial, step) {
-  const md = fs.readFileSync(`walkthru/${tutorial}/${step}.md`, 'utf8')
+  const mod = await import(`/walkthru/${tutorial}/${step}.md`)
+  const md = mod.default
   const content = await serialize(md, { parseFrontmatter: true })
   content.slug = step === 'start' ? null : step
   return content
 }
 
 async function loadTutorial(name, ghpat) {
-  const json = fs.readFileSync(`walkthru/${name}/config.json`, 'utf8');
-  const config = JSON.parse(json)
+  const mod = await import(`/walkthru/${name}/config.json`)
+  const config = mod.default
   const code = await getCode(config.code.owner, config.code.repo, config.code.files, ghpat)
   const instructions = []
   instructions.push(await loadStepContent(name, 'start'))

@@ -21,7 +21,7 @@ function WTMain({ code, instructions, config, tutorialSlug, stepSlug }) {
     <div className="flex gap-4 w-full">
       <div className="w-1/3 flex flex-col">
         <NoSSR>
-          <WTSelect tutorialSlug={tutorialSlug} stepSlug={step.slug} steps={instructions} title={config.title} />
+          <WTSelect tutorialSlug={tutorialSlug} stepSlug={stepSlug} steps={instructions} title={config.title} />
           <WTContent content={step} tutorialSlug={tutorialSlug} nextStepSlug={nextStep ? nextStep.slug : null} />
         </NoSSR>
       </div>

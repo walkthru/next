@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import WalkThru from "../components/WalkThru/WTMain";
 import Layout from '../components/Layout';
 
-function Guide({ code, instructions, config }) {
+function App({ code, instructions, config }) {
   const router = useRouter()
   const segments = router.asPath.split('#')
   let step = segments[1] ? segments[1] : null
@@ -12,6 +12,9 @@ function Guide({ code, instructions, config }) {
   }
   const [tutorialSlug, setTutorialSlug] = useState(segments[0].substring(1))
   const [stepSlug, setStepSlug] = useState(step)
+  useEffect(() => {
+    document.title = config.title
+  }, [config])
   useEffect(() => {
     const segments = router.asPath.split('#')
     const hash = segments[1]
@@ -71,4 +74,4 @@ export async function getStaticProps({ params }) {
   return { props: { code, instructions, config } }
 }
 
-export default Guide
+export default App
