@@ -121,7 +121,7 @@ function WTCode({ files, active, focus, center, sameFile, config }) {
                   lineProps.highlighted = true
                 }
                 return (
-                  <Line {...lineProps}>
+                  <Line {...lineProps} key={i}>
                     <LineNo className="__line-no">{i + 1}</LineNo>
                     {line.map((token, key) => {
                       const tokenProps = getTokenProps({ token, key })
@@ -129,7 +129,7 @@ function WTCode({ files, active, focus, center, sameFile, config }) {
                         tokenProps.highlighted = true
                       }
                       return (
-                        <LineContent {...tokenProps} />
+                        <LineContent {...tokenProps} key={key} />
                       )
                     })}
                   </Line>
