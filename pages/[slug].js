@@ -46,6 +46,10 @@ function App({ code, instructions, config }) {
           config={config}
           tutorialSlug={tutorialSlug}
           stepSlug={stepSlug}
+          classes={{
+            select: '',
+            instructions: 'prose prose-sm',
+          }}
         />
       </div>
     </Layout>

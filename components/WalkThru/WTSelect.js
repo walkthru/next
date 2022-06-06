@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import Select from 'react-select'
 
-function WTSelect({ tutorialSlug, stepSlug, steps, title }) {
+function WTSelect({ tutorialSlug, stepSlug, steps, title, classes }) {
   const router = useRouter()
   function navigate({ value }) {
     if (value) {
@@ -27,11 +27,19 @@ function WTSelect({ tutorialSlug, stepSlug, steps, title }) {
 
   return (
     <Select
-      className="mb-3 text-xs"
+      className={classes}
       defaultValue={options[0].options.find((o) => o.value === stepSlug)}
       onChange={navigate}
       options={options}
       styles={{
+        container: (base) => {
+          return {
+            ...base,
+            fontSize: '0.75rem',
+            lineHeight: '1rem',
+            marginBottom: '0.75rem',
+          }
+        },
         input: (base) => ({
           ...base,
           ...selectStyles,

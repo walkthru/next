@@ -3,8 +3,31 @@ import NoSSR from './NoSSR'
 import WTSelect from './WTSelect'
 import WTContent from './WTContent'
 import WTCode from './WTCode'
+import styled from 'styled-components'
 
-function WTMain({ code, instructions, config, tutorialSlug, stepSlug }) {
+const Wrapper = styled.div`
+  gap: 1rem;
+  width: 100%;
+  display: flex;
+`
+const ColLeft = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 33.333333%;
+`
+const ColRight = styled.div`
+  display: flex;
+  width: 66.666666%;
+`
+
+function WTMain({
+  code,
+  instructions,
+  config,
+  tutorialSlug,
+  stepSlug,
+  classes,
+}) {
   const stepIndex = instructions.findIndex((step) => step.slug === stepSlug)
   const [lastStepFile, setLastStepFile] = useState('')
   const [step, setStep] = useState(instructions[stepIndex])
@@ -18,23 +41,25 @@ function WTMain({ code, instructions, config, tutorialSlug, stepSlug }) {
     }
   }, [stepSlug, instructions])
   return (
-    <div className="flex gap-4 w-full">
-      <div className="w-1/3 flex flex-col">
+    <Wrapper>
+      <ColLeft>
         <NoSSR>
           <WTSelect
             tutorialSlug={tutorialSlug}
             stepSlug={stepSlug}
             steps={instructions}
             title={config.title}
+            classes={classes.select}
           />
           <WTContent
             content={step}
             tutorialSlug={tutorialSlug}
             nextStepSlug={nextStep ? nextStep.slug : null}
+            classes={classes.instructions}
           />
         </NoSSR>
-      </div>
-      <div className="w-2/3 flex">
+      </ColLeft>
+      <ColRight>
         <NoSSR>
           <WTCode
             files={code}
@@ -45,8 +70,8 @@ function WTMain({ code, instructions, config, tutorialSlug, stepSlug }) {
             config={config}
           />
         </NoSSR>
-      </div>
-    </div>
+      </ColRight>
+    </Wrapper>
   )
 }
 

@@ -10,6 +10,7 @@ const Pre = styled.pre`
   overflow-y: scroll;
   margin: 0;
   padding: 0;
+  border-radius: 0.25rem;
 `
 
 const Line = styled.div`
