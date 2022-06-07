@@ -86,9 +86,7 @@ function WTMain({
         <NoSSR>
           <WTCode
             files={code}
-            active={step.frontmatter.file}
-            focus={step.frontmatter.focus}
-            center={step.frontmatter.center}
+            step={step}
             sameFile={step.frontmatter.file === lastStepFile}
             config={config}
           />

@@ -42,7 +42,7 @@ function WTSelect({ tutorialSlug, stepSlug, steps, title, classes }) {
             ...base,
             fontSize: '0.75rem',
             lineHeight: '1rem',
-            marginBottom: '0.75rem',
+            marginBottom: '1.5rem',
           }
         },
         input: (base) => ({

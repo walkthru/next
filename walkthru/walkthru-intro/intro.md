@@ -1,15 +1,14 @@
 ---
 title: Introduction
-file: walkthru/walkthru-intro/intro.md
+file: pages/[slug].js
 ---
 
-**Walkthru** is an alternative to a blog post tutorial that provides a better way of walking through code.
+**Walkthru** is an embeddable UI widget that provides a better way of explaining and understanding code. 
 
-Walkthru is open source and is useful in these scenarios:
+It's great for:
 
-- Explaining a product
+- Technical tutorials
+- Documentation
 - Teaching
 
-In fact, you're looking at a Walkthru right now! It gets weirder though - the code we're going to walkthrough is the source code of this very page.
-
-Click "Next" and you'll get a quick tour of Walkthru and understand how it works.
+Click the *Next* button below to start a quick tour of Walkthru where you'll find out what it can do and how you can use it.

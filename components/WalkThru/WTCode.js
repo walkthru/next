@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import { animateScroll } from 'react-scroll'
-import GithubIcon from './GithubIcon'
 import style from './WTCode.module.css'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import theme from 'prism-react-renderer/themes/okaidia'
 import styled from 'styled-components'
+import WTFileBar from './WTFileBar'
 
 const Pre = styled.pre`
   overflow-y: scroll;
@@ -18,6 +18,7 @@ const Line = styled.div`
   -webkit-transition: opacity 100ms linear;
   -ms-transition: opacity 100ms linear;
   transition: opacity 100ms linear;
+  display: flex;
   background-color: ${(props) =>
     props.highlighted ? '#100d0b;' : 'rgb(28 25 23);'}
   &:hover {
@@ -31,7 +32,7 @@ const Line = styled.div`
   }
 `
 
-const LineContent = styled.span`
+const Token = styled.span`
   opacity: ${(props) => (props.highlighted ? '1;' : '0.5;')}
   -webkit-transition: opacity 100ms linear;
   -ms-transition: opacity 100ms linear;
@@ -44,10 +45,16 @@ const LineContent = styled.span`
   }
 `
 
-const LineNo = styled.span`
+const LineNo = styled.div`
   display: inline-flex;
   justify-content: center;
   width: 3rem;
+  flex-shrink: 0;
+`
+
+const LineContent = styled.div`
+  white-space: pre-wrap;
+  word-break: break-word;
 `
 
 function getHighlightedLines(focus) {
@@ -81,7 +88,9 @@ function scrollNewCenter(center) {
   }
 }
 
-function WTCode({ files, active, focus, center, sameFile, config }) {
+function WTCode({ files, step, sameFile, config }) {
+  const { focus, language, center } = step.frontmatter
+  const active = step.frontmatter.file
   const [content, setContent] = useState('')
   const [prevScrollPos, setPrevScrollPos] = useState(0)
   const file = files.find((file) => file.path === active)
@@ -90,7 +99,7 @@ function WTCode({ files, active, focus, center, sameFile, config }) {
   useEffect(() => {
     const file = files.find((file) => file.path === active)
     setActiveFile(file)
-  }, [files, active])
+  }, [files, step, active])
   useEffect(() => {
     let scrollPos = 0
     if (sameFile) {
@@ -105,30 +114,12 @@ function WTCode({ files, active, focus, center, sameFile, config }) {
   }, [content, center, prevScrollPos, sameFile])
   return (
     <div id="code-wrapper" className={style.codeWrapper}>
-      <div className={style.codeFiles}>
-        <ul>
-          {files.map((file) => (
-            <li
-              key={file.path}
-              className={file.path === active ? style.fileActive : ''}
-            >
-              {file.path}
-            </li>
-          ))}
-        </ul>
-        <a
-          href={`https://github.com/${config.code.owner}/${config.code.repo}/blob/master/${activeFile.path}`}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <GithubIcon />
-        </a>
-      </div>
+      <WTFileBar files={files} activeFile={activeFile} config={config} />
       <Highlight
         {...defaultProps}
         theme={theme}
         code={activeFile.content}
-        language={activeFile.path.split('.').pop()}
+        language={language || activeFile.path.split('.').pop()}
       >
         {({ className, style, tokens, getLineProps, getTokenProps }) => {
           return (
@@ -146,18 +137,21 @@ function WTCode({ files, active, focus, center, sameFile, config }) {
                   }
                   return (
                     <Line {...lineProps} key={i.toString()}>
-                      <LineNo className="__line-no" key={i.toString()}>
+                      <LineNo
+                        className="__line-no"
+                        key={`number-${i.toString()}`}
+                      >
                         {i + 1}
                       </LineNo>
-                      {line.map((token, key) => {
-                        const tokenProps = getTokenProps({ token, key })
-                        if (highlightedLines.indexOf(i + 1) > -1) {
-                          tokenProps.highlighted = true
-                        }
-                        return (
-                          <LineContent {...tokenProps} key={`${i}-${key}`} />
-                        )
-                      })}
+                      <LineContent key={`content-${i.toString()}`}>
+                        {line.map((token, key) => {
+                          const tokenProps = getTokenProps({ token, key })
+                          if (highlightedLines.indexOf(i + 1) > -1) {
+                            tokenProps.highlighted = true
+                          }
+                          return <Token {...tokenProps} key={`${i}-${key}`} />
+                        })}
+                      </LineContent>
                     </Line>
                   )
                 })}

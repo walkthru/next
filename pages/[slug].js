@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import WalkThru from '../components/WalkThru/WTMain'
 import Layout from '../components/Layout'
 
-function App({ code, instructions, config }) {
+function Slug({ code, instructions, config }) {
   const router = useRouter()
   const segments = router.asPath.split('#')
   let step = segments[1] ? segments[1] : config.steps[0]
@@ -71,4 +71,4 @@ export async function getStaticProps({ params }) {
   return { props: { code, instructions, config } }
 }
 
-export default App
+export default Slug

@@ -31,25 +31,9 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
-.codeFiles ul li {
-  --tw-text-opacity: 1;
-  color: rgb(168 162 158 / var(--tw-text-opacity));
-  font-size: 0.75rem;
-  line-height: 1rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  border-radius: 0.25rem;
-  cursor: pointer;
-}
-
-.fileActive {
-  --tw-bg-opacity: 1;
-  background-color: rgb(87 83 78 / var(--tw-bg-opacity));
-  --tw-text-opacity: 1;
-  color: rgb(231 229 228 / var(--tw-text-opacity));
-}
 
 .codeFiles ul li:not(.fileActive):hover {
   --tw-bg-opacity: 1;

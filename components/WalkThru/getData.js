@@ -2,25 +2,29 @@ import { Octokit } from 'octokit'
 import { serialize } from 'next-mdx-remote/serialize'
 
 async function getCode(owner, repo, files, ref, ghpat) {
-  const octokit = new Octokit({
-    auth: ghpat,
-  })
-  const data = await Promise.all(
-    files.map((path) =>
-      octokit.request(`GET /repos/{owner}/{repo}/contents/{path}?ref=${ref}`, {
-        owner,
-        repo,
-        path,
-      })
+  try {
+    const octokit = new Octokit({
+      auth: ghpat,
+    })
+    const data = await Promise.all(
+      files.map((path) =>
+        octokit.request(`GET /repos/{owner}/{repo}/contents/{path}?ref=${ref}`, {
+          owner,
+          repo,
+          path,
+        })
+      )
     )
-  )
-  return data.map((item) => {
-    let buff = new Buffer(item.data.content, 'base64')
-    return {
-      path: item.data.path,
-      content: buff.toString('ascii'),
-    }
-  })
+    return data.map((item) => {
+      let buff = new Buffer(item.data.content, 'base64')
+      return {
+        path: item.data.path,
+        content: buff.toString('ascii'),
+      }
+    })
+  } catch (err) {
+    console.log(err.response.data)
+  }
 }
 
 async function loadStepContent(tutorial, step) {

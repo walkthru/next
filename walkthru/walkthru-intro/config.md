@@ -1,6 +1,6 @@
 ---
-title: Setting up a walkthru
+title: Config file
 file: walkthru/walkthru-intro/config.json
 ---
 
-To create a walkthru, you'll need a config file.
+Each walkthru tutorial has a config file like this. Let's go through some of the important parts.
