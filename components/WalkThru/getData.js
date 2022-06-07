@@ -1,13 +1,13 @@
 import { Octokit } from 'octokit'
 import { serialize } from 'next-mdx-remote/serialize'
 
-async function getCode(owner, repo, files, ghpat) {
+async function getCode(owner, repo, files, ref, ghpat) {
   const octokit = new Octokit({
     auth: ghpat,
   })
   const data = await Promise.all(
     files.map((path) =>
-      octokit.request('GET /repos/{owner}/{repo}/contents/{path}?ref=c8056c7', {
+      octokit.request(`GET /repos/{owner}/{repo}/contents/{path}?ref=${ref}`, {
         owner,
         repo,
         path,
@@ -38,6 +38,7 @@ async function getData(name, ghpat) {
     config.code.owner,
     config.code.repo,
     config.code.files,
+    config.code.ref,
     ghpat
   )
   const instructions = []
