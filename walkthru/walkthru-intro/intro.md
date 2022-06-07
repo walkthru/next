@@ -1,6 +1,6 @@
 ---
 title: Introduction
-file: walkthru/app.js
+file: walkthru/walkthru-intro/app.js
 focus: 4-5
 center: 4
 ---
