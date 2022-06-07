@@ -112,13 +112,14 @@ function WTCode({ files, step, sameFile, config }) {
     scrollNewCenter(center)
     setPrevScrollPos(scrollPos)
   }, [content, center, prevScrollPos, sameFile])
+  console.log(activeFile)
   return (
     <div id="code-wrapper" className={style.codeWrapper}>
       <WTFileBar files={files} activeFile={activeFile} config={config} />
       <Highlight
         {...defaultProps}
         theme={theme}
-        code={activeFile.content}
+        code={activeFile.content.split('\n---\n\n')[1]}
         language={language || activeFile.path.split('.').pop()}
       >
         {({ className, style, tokens, getLineProps, getTokenProps }) => {
