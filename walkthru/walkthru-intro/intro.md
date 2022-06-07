@@ -3,8 +3,6 @@ title: Introduction
 file: walkthru/walkthru-next/intro.md
 ---
 
-## Introduction to Walkthru
-
 **Walkthru** is an alternative to a blog post tutorial that provides a better way of walking through code.
 
 Walkthru is open source and is useful in these scenarios:
