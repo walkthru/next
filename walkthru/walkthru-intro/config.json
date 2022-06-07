@@ -3,15 +3,19 @@
   "code": {
     "owner": "walkthru",
     "repo": "next",
-    "ref": "a224694",
+    "ref": "main",
     "files": [
       "pages/[slug].js",
       "walkthru/walkthru-intro/intro.md",
+      "walkthru/walkthru-intro/github.md",
       "walkthru/walkthru-intro/config.json"
     ]
   },
   "steps": [
     "intro",
-    "intro2"
+    "config",
+    "github",
+    "step",
+    "highlighting"
   ]
 }

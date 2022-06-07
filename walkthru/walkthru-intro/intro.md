@@ -1,6 +1,6 @@
 ---
 title: Introduction
-file: walkthru/walkthru-next/intro.md
+file: walkthru/walkthru-intro/intro.md
 ---
 
 **Walkthru** is an alternative to a blog post tutorial that provides a better way of walking through code.
