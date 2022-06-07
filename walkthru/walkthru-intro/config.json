@@ -7,17 +7,18 @@
     "files": [
       "pages/[slug].js",
       "walkthru/walkthru-intro/what-is-a-walkthru.md",
-      "walkthru/walkthru-intro/github.md",
-      "walkthru/walkthru-intro/config.json"
+      "walkthru/walkthru-intro/code.md",
+      "walkthru/walkthru-intro/config.json",
+      "walkthru/app.js"
     ]
   },
   "steps": [
     "intro",
     "what-is-a-walkthru",
+    "step",
     "config",
     "code",
     "files",
-    "step",
     "highlighting",
     "steps-config",
     "load-data",

@@ -1,6 +1,8 @@
 ---
 title: Introduction
-file: pages/[slug].js
+file: walkthru/app.js
+focus: 4-5
+center: 4
 ---
 
 **Walkthru** is an embeddable UI widget that provides a better way of explaining and understanding code. 

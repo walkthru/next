@@ -23,7 +23,7 @@ async function getCode(owner, repo, files, ref, ghpat) {
       }
     })
   } catch (err) {
-    console.log(err.response.data)
+    console.log(err)
   }
 }
 

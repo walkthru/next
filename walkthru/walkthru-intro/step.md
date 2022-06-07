@@ -1,7 +1,7 @@
 ---
 title: Tutorial steps
-file: walkthru/walkthru-intro/github.md
+file: walkthru/walkthru-intro/what-is-a-walkthru.md
 language: yaml
 ---
 
-Each tutorial step can be created in a markdown file with frontmatter.
+To create a walkthru step you'll define a markdown file. The which references a file in a GitHub repo.
