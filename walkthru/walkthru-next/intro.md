@@ -1,11 +1,9 @@
 ---
 title: Introduction
-file: lib/createCache.js
-focus: 30-39
-center: 34
+file: walkthru/walkthru-next/config.json
 ---
 
-# Title of the tutorial
+## Setting up Walkthru with Next.js
 
 Lorem markdownum diffudere revelli, fecit viae hunc inputet
 [parte](http://adiacet.org/), ut praemia siqua; tuum. Ungues leto aetherioque

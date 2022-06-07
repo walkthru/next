@@ -26,6 +26,9 @@ const Line = styled.div`
   ${Pre}:hover & {
     opacity: ${(props) => (props.highlighted ? '1;' : '0.9;')}
   }
+  ${Pre}.no-highlight & {
+    opacity: 1;
+  }
 `
 
 const LineContent = styled.span`
@@ -35,6 +38,9 @@ const LineContent = styled.span`
   transition: opacity 100ms linear;
   ${Pre}:hover & {
     opacity: ${(props) => (props.highlighted ? '1;' : '0.9;')}
+  }
+  ${Pre}.no-highlight & {
+    opacity: 1;
   }
 `
 
@@ -80,11 +86,11 @@ function WTCode({ files, active, focus, center, sameFile, config }) {
   const [prevScrollPos, setPrevScrollPos] = useState(0)
   const file = files.find((file) => file.path === active)
   const [activeFile, setActiveFile] = useState(file)
-  const highlightedLines = getHighlightedLines(focus.toString())
+  const highlightedLines = focus ? getHighlightedLines(focus.toString()) : []
   useEffect(() => {
-    // const highlighted = prism.highlight(activeFile.content, prism.languages.javascript)
-    // setContent(addLineFormatting(highlighted, focus.toString()))
-  }, [activeFile, active, focus, center])
+    const file = files.find((file) => file.path === active)
+    setActiveFile(file)
+  }, [files, active])
   useEffect(() => {
     let scrollPos = 0
     if (sameFile) {
@@ -124,32 +130,41 @@ function WTCode({ files, active, focus, center, sameFile, config }) {
         code={activeFile.content}
         language={activeFile.path.split('.').pop()}
       >
-        {({ className, style, tokens, getLineProps, getTokenProps }) => (
-          <Pre id="code" className={className}>
-            <code>
-              {tokens.map((line, i) => {
-                const lineProps = getLineProps({ line, key: i })
-                if (highlightedLines.indexOf(i + 1) > -1) {
-                  lineProps.highlighted = true
-                }
-                return (
-                  <Line {...lineProps} key={i.toString()}>
-                    <LineNo className="__line-no" key={i.toString()}>
-                      {i + 1}
-                    </LineNo>
-                    {line.map((token, key) => {
-                      const tokenProps = getTokenProps({ token, key })
-                      if (highlightedLines.indexOf(i + 1) > -1) {
-                        tokenProps.highlighted = true
-                      }
-                      return <LineContent {...tokenProps} key={`${i}-${key}`} />
-                    })}
-                  </Line>
-                )
-              })}
-            </code>
-          </Pre>
-        )}
+        {({ className, style, tokens, getLineProps, getTokenProps }) => {
+          return (
+            <Pre
+              id="code"
+              className={`${className} ${
+                highlightedLines.length ? '' : 'no-highlight'
+              }`}
+            >
+              <code>
+                {tokens.map((line, i) => {
+                  const lineProps = getLineProps({ line, key: i })
+                  if (highlightedLines.indexOf(i + 1) > -1) {
+                    lineProps.highlighted = true
+                  }
+                  return (
+                    <Line {...lineProps} key={i.toString()}>
+                      <LineNo className="__line-no" key={i.toString()}>
+                        {i + 1}
+                      </LineNo>
+                      {line.map((token, key) => {
+                        const tokenProps = getTokenProps({ token, key })
+                        if (highlightedLines.indexOf(i + 1) > -1) {
+                          tokenProps.highlighted = true
+                        }
+                        return (
+                          <LineContent {...tokenProps} key={`${i}-${key}`} />
+                        )
+                      })}
+                    </Line>
+                  )
+                })}
+              </code>
+            </Pre>
+          )
+        }}
       </Highlight>
     </div>
   )

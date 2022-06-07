@@ -1,3 +1,5 @@
+const WatchExternalFilesPlugin = require('webpack-watch-files-plugin').default
+
 const nextConfig = {
   reactStrictMode: true,
   webpack: (config) => {
@@ -5,6 +7,14 @@ const nextConfig = {
       test: /\.md$/,
       use: 'raw-loader',
     })
+    config.plugins.push(
+      new WatchExternalFilesPlugin({
+        files: [
+          './walkthru/**/*.json',
+          './walkthru/**/*.md',
+        ]
+      })
+    )
     return config
   },
   compiler: {

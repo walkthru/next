@@ -3,14 +3,14 @@
   "code": {
     "owner": "walkthru",
     "repo": "next",
+    "ref": "c8056c7",
     "files": [
       "pages/[slug].js",
       "walkthru/walkthru-next/config.json"
     ]
   },
   "steps": [
-    "start",
-    "test2",
-    "test"
+    "intro",
+    "static-paths"
   ]
 }
