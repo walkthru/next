@@ -3,7 +3,7 @@
   "code": {
     "owner": "walkthru",
     "repo": "next",
-    "ref": "f7d68a8",
+    "ref": "c789d7f",
     "files": [
       "pages/[slug].js",
       "walkthru/walkthru-next/intro.md",
