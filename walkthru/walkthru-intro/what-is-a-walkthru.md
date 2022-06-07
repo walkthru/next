@@ -4,8 +4,12 @@ file: walkthru/walkthru-intro/what-is-a-walkthru.md
 language: yaml
 ---
 
-A *walkthru* can be thought of as a *multi-step tutorial*. 
+Let's first clear up something that may be confusing: 
 
-Each step consists of text instructions (here on the left side of the page) and a code file (on the right side).
+"Walkthru" (with a capital "W") is the name of the app while a "walkthru" (with a small "w") is what we call the tutorial that you'll write and display with Walkthru.
 
-In fact, the code file you're viewing here is the same one used to define this step! 🤯
+Simple enough, right?!
+
+A walkthru will have multiple steps that are defined in individual markdown files. Each step consists of text instructions (displayed here on the left side) and a code file (displayed on the right side).
+
+In fact, the code file you're viewing is the same one used to define this step! 🤯

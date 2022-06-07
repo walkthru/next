@@ -9,7 +9,7 @@
       "walkthru/walkthru-intro/what-is-a-walkthru.md",
       "walkthru/walkthru-intro/code.md",
       "walkthru/walkthru-intro/config.json",
-      "walkthru/walkthru-intro/app.js"
+      "walkthru/walkthru-intro/app.jsx"
     ]
   },
   "steps": [
