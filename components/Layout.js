@@ -1,4 +1,4 @@
-import GithubIcon from "./GithubIcon";
+import GithubIcon from './GithubIcon'
 
 function Layout({ children }) {
   return (
@@ -10,7 +10,11 @@ function Layout({ children }) {
             WalkThru
           </h1>
         </div>
-        <a target="_blank" href="https://github.com/walkthru/next">
+        <a
+          target="_blank"
+          href="https://github.com/walkthru/next"
+          rel="noreferrer"
+        >
           <GithubIcon className="fill-white h-6 w-6" />
         </a>
       </header>

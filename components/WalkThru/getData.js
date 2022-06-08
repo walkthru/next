@@ -8,11 +8,14 @@ async function getCode(owner, repo, files, ref, ghpat) {
     })
     const data = await Promise.all(
       files.map((path) =>
-        octokit.request(`GET /repos/{owner}/{repo}/contents/{path}?ref=${ref}`, {
-          owner,
-          repo,
-          path,
-        })
+        octokit.request(
+          `GET /repos/{owner}/{repo}/contents/{path}?ref=${ref}`,
+          {
+            owner,
+            repo,
+            path,
+          }
+        )
       )
     )
     return data.map((item) => {

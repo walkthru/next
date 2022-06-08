@@ -3,8 +3,10 @@ import GithubIcon from './GithubIcon'
 import styled from 'styled-components'
 
 const Li = styled.li`
-  background-color: ${props => props.fileActive ? 'rgb(87 83 78);' : 'none;' }
-  color: ${props => props.fileActive ? 'rgb(231 229 228);' : 'rgb(168 162 158);' }
+  background-color: ${(props) =>
+    props.fileActive ? 'rgb(87 83 78);' : 'none;'}
+  color: ${(props) =>
+    props.fileActive ? 'rgb(231 229 228);' : 'rgb(168 162 158);'}
   font-size: 0.75rem;
   line-height: 1rem;
   padding-left: 0.5rem;
@@ -33,10 +35,7 @@ function WTFileBar({ files, activeFile, config }) {
     <div className={style.codeFiles}>
       <ul>
         {files.map((file) => (
-          <Li
-            key={file.path}
-            fileActive={file.path === activeFile.path}
-          >
+          <Li key={file.path} fileActive={file.path === activeFile.path}>
             <FileName>{file.path.split('/').pop()}</FileName>
             <FilePath>{file.path}</FilePath>
           </Li>

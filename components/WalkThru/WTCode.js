@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { animateScroll } from 'react-scroll'
 import style from './WTCode.module.css'
 import Highlight, { defaultProps } from 'prism-react-renderer'
-import theme from 'prism-react-renderer/themes/okaidia'
+import theme from './okaidia'
 import styled from 'styled-components'
 import WTFileBar from './WTFileBar'
 
@@ -119,7 +119,7 @@ function WTCode({ files, step, sameFile, config }) {
       <Highlight
         {...defaultProps}
         theme={theme}
-        code={activeFile.content.split('\n---\n\n')[1]}
+        code={activeFile.content}
         language={language || activeFile.path.split('.').pop()}
       >
         {({ className, style, tokens, getLineProps, getTokenProps }) => {
@@ -150,6 +150,7 @@ function WTCode({ files, step, sameFile, config }) {
                           if (highlightedLines.indexOf(i + 1) > -1) {
                             tokenProps.highlighted = true
                           }
+                          console.log(tokenProps)
                           return <Token {...tokenProps} key={`${i}-${key}`} />
                         })}
                       </LineContent>

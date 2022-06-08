@@ -1,13 +1,10 @@
 ---
 title: What is a walkthru?
 file: walkthru/walkthru-intro/what-is-a-walkthru.md
-language: markdown
 ---
 
-## Hello
+A tutorial created with Walkthru is called a *walkthru* (with a small "w"). 
 
-A tutorial created with Walkthru (called a *walkthru* with a small "w") consists multiple steps that are defined in individual markdown files. 
+The steps of a walkthru include text instructions (displayed here on the left side) and a code file (displayed on the right side).
 
-Each step consists of text instructions (displayed here on the left side) and a code file (displayed on the right side).
-
-In fact, the code file you're viewing is the same one used to define this step! 🤯
+Steps are defined in markdown files. In fact, the code file you're viewing is the markdown file used to define this step! 🤯

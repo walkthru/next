@@ -1,7 +1,6 @@
 ---
 title: Highlighting code
 file: walkthru/walkthru-intro/code.md
-language: yaml
 focus: 4-5
 center: 5
 ---

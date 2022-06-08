@@ -5,6 +5,6 @@ focus: 3-13
 center: 8
 ---
 
-The code you see in the right panel of a walkthru is pulled from a GitHub repo.
+As we just mentioned, the code files in a walkthru are pulled from a GitHub repo.
 
-This tutorial uses the repo `https://github.com/walkthru/next`.
+It's here in the config file that we declare which GitHub repo and which files are required throughout the tutorial.
