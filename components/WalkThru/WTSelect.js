@@ -36,6 +36,7 @@ function WTSelect({ tutorialSlug, stepSlug, steps, title, classes }) {
       value={value}
       onChange={navigate}
       options={options}
+      isSearchable={false}
       styles={{
         container: (base) => {
           return {
