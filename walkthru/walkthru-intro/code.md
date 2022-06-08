@@ -1,7 +1,7 @@
 ---
 title: Code config
 file: walkthru/walkthru-intro/config.json
-focus: 3-13
+focus: 3-14
 center: 8
 ---
 

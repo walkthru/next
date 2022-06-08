@@ -37,7 +37,7 @@ function Slug({ code, instructions, config }) {
           stepSlug={stepSlug}
           classes={{
             select: '',
-            instructions: 'prose prose-sm',
+            instructions: 'prose prose-sm max-w-none',
           }}
         />
       </div>

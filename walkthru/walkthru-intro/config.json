@@ -1,26 +1,31 @@
 {
-  "title": "What is a walkthru?",
+  "title": "What is Walkthru?",
   "code": {
     "owner": "walkthru",
     "repo": "next",
     "ref": "main",
     "files": [
-      "pages/[slug].js",
+      "walkthru/walkthru-intro/app.jsx",
       "walkthru/walkthru-intro/what-is-a-walkthru.md",
       "walkthru/walkthru-intro/highlighting.md",
       "walkthru/walkthru-intro/config.json",
-      "walkthru/walkthru-intro/app.jsx"
+      "pages/[slug].js"
     ]
   },
   "steps": [
     "intro",
     "what-is-a-walkthru",
-    "step",
+    "code-file",
     "highlighting",
     "config",
     "code",
     "steps-config",
+    "app",
     "load-data",
-    "component"
+    "slug",
+    "ghpat",
+    "get-data",
+    "component",
+    "finish"
   ]
 }

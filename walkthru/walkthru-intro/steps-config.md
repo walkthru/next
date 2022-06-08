@@ -5,4 +5,6 @@ focus: 15-26
 center: 21
 ---
 
-The `steps` array is where we reference each step we've created so that Walkthru knows which ones to use and in which order.
+The `steps` array is where we reference each step we've created. 
+
+This tells Walkthru which steps to include and in which order.

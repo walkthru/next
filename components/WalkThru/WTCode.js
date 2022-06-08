@@ -7,7 +7,7 @@ import styled from 'styled-components'
 import WTFileBar from './WTFileBar'
 
 const Pre = styled.pre`
-  overflow-y: scroll;
+  overflow-y: auto;
   margin: 0;
   padding: 0;
   border-radius: 0.25rem;

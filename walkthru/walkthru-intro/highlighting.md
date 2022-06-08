@@ -5,7 +5,7 @@ focus: 4-5
 center: 4
 ---
 
-One of the most useful features of Walkthru is the ability to highlight specific parts of the code.
+One of the most useful features of Walkthru is the ability to highlight specific lines of a code file.
 
 To do this, set the `focus` property in the frontmatter and indicate the lines to highlight. 
 

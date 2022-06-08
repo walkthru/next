@@ -5,7 +5,7 @@ import styled from 'styled-components'
 const ContentWrapper = styled.div`
   padding-left: 0.25rem;
   padding-right: 0.5rem;
-  overflow-y: scroll;
+  overflow-y: auto;
 `
 
 const ButtonWrapper = styled.div`
@@ -29,6 +29,8 @@ const Button = styled.button`
 `
 
 const components = {}
+
+
 
 function WTContent({ content, tutorialSlug, nextStepSlug, classes }) {
   const router = useRouter()
