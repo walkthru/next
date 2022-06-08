@@ -7,7 +7,7 @@
     "files": [
       "pages/[slug].js",
       "walkthru/walkthru-intro/what-is-a-walkthru.md",
-      "walkthru/walkthru-intro/code.md",
+      "walkthru/walkthru-intro/highlighting.md",
       "walkthru/walkthru-intro/config.json",
       "walkthru/walkthru-intro/app.jsx"
     ]
@@ -16,10 +16,9 @@
     "intro",
     "what-is-a-walkthru",
     "step",
+    "highlighting",
     "config",
     "code",
-    "files",
-    "highlighting",
     "steps-config",
     "load-data",
     "component"

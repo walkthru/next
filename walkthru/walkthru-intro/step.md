@@ -1,5 +1,5 @@
 ---
-title: Code file
+title: Including code file
 file: walkthru/walkthru-intro/what-is-a-walkthru.md
 focus: 3
 center: 3
