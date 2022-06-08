@@ -4,7 +4,7 @@ import Image from 'next/image'
 function Layout({ children }) {
   return (
     <div className="h-screen flex flex-col">
-      <header className="flex-none bg-gray-700 px-8 py-2 flex justify-between align-middle">
+      <header className="flex-none bg-gray-700 p-4 md:px-8 py-2 flex justify-between align-middle">
         <div className="flex gap-2 items-center">
           <Image alt="Walkthru" src="/logo.png" width={25} height={25} />
           <h1 className="text-white text-lg font-bold leading-none">

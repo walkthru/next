@@ -112,7 +112,6 @@ function WTCode({ files, step, sameFile, config }) {
     scrollNewCenter(center)
     setPrevScrollPos(scrollPos)
   }, [content, center, prevScrollPos, sameFile])
-  console.log(activeFile)
   return (
     <div id="code-wrapper" className={style.codeWrapper}>
       <WTFileBar files={files} activeFile={activeFile} config={config} />
@@ -150,7 +149,6 @@ function WTCode({ files, step, sameFile, config }) {
                           if (highlightedLines.indexOf(i + 1) > -1) {
                             tokenProps.highlighted = true
                           }
-                          console.log(tokenProps)
                           return <Token {...tokenProps} key={`${i}-${key}`} />
                         })}
                       </LineContent>

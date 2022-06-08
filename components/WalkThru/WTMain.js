@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   width: 100%;
   display: flex;
   @media (max-width: 639px) {
-    flex-wrap: wrap;
+    flex-direction: column;
   }
 `
 
@@ -33,7 +33,7 @@ const ColRight = styled.div`
   display: flex;
   @media (max-width: 639px) {
     width: 100%;
-    height: 50%;
+    max-height: 50%;
   }
   @media (min-width: 640px) and (max-width: 767px) {
     width: 50%;
