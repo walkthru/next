@@ -1,11 +1,12 @@
 import GithubIcon from './GithubIcon'
+import Image from 'next/image'
 
 function Layout({ children }) {
   return (
     <div className="h-screen flex flex-col">
       <header className="flex-none bg-gray-700 px-8 py-2 flex justify-between align-middle">
         <div className="flex gap-2 items-center">
-          <img src="logo.png" className="h-6 w-6" />
+          <Image alt="Walkthru" src="/logo.png" width={25} height={25} />
           <h1 className="text-white text-lg font-bold leading-none">
             WalkThru
           </h1>

@@ -30,8 +30,6 @@ const Button = styled.button`
 
 const components = {}
 
-
-
 function WTContent({ content, tutorialSlug, nextStepSlug, classes }) {
   const router = useRouter()
   function next() {
