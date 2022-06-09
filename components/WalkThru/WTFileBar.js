@@ -14,6 +14,9 @@ const Li = styled.li`
   border-radius: 0.25rem;
   cursor: pointer;
   flex-shrink: 0;
+  @media (max-width: 639px) {
+    display: ${(props) => (props.fileActive ? 'inline-block;' : 'none;')}
+  }
 `
 
 const FileName = styled.div`

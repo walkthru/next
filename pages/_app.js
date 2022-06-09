@@ -1,7 +1,25 @@
 import Head from 'next/head'
 import '../styles/globals.css'
+import { useEffect } from 'react'
 
 function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    function preventDefault(e) {
+      var source = e.target || e.srcElement
+      console.log('body handler')
+      e.preventDefault()
+    }
+    function disableScroll() {
+      document.body.addEventListener('touchmove', preventDefault, {
+        passive: false,
+      })
+      document.body.addEventListener('touchstart', preventDefault, {
+        passive: false,
+      })
+    }
+    disableScroll()
+    // return () => enableScroll()
+  }, [])
   return (
     <>
       <Head>

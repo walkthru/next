@@ -38,27 +38,42 @@ function WTContent({ content, tutorialSlug, nextStepSlug, classes }) {
     router.push(`${tutorialSlug}#${nextStepSlug}`)
   }
   const ref = useRef()
+
   useEffect(() => {
     ref.current.recalculate()
   }, [])
   useEffect(() => {
-    const el = ref.current.getScrollElement()
-    el.scrollTo(0, 0)
+    ref.current.getScrollElement().scrollTo(0, 0)
   }, [content])
+  useEffect(() => {
+    const el = ref.current.wrapperEl.parentElement.parentElement
+    console.log(el)
+    function preventDefault(e) {
+      e.stopPropagation()
+      e.stopImmediatePropagation()
+    }
+    el.addEventListener('touchstart', preventDefault, { passive: false })
+    el.addEventListener('touchmove', preventDefault, { passive: false })
+  }, [])
   return (
-    <SimpleBar
-      style={{ minHeight: 0 }}
-      forceVisible="y"
-      autoHide={false}
-      ref={ref}
-    >
-      <div className={classes} style={contentStyle}>
-        <MDXRemote {...content} components={components} />
-        <ButtonWrapper>
-          {nextStepSlug ? <Button onClick={next}>Next</Button> : <></>}
-        </ButtonWrapper>
-      </div>
-    </SimpleBar>
+    <div style={{ overflow: 'hidden' }}>
+      <SimpleBar
+        style={{
+          minHeight: 0,
+          height: '100%',
+        }}
+        forceVisible="y"
+        autoHide={false}
+        ref={ref}
+      >
+        <div className={classes} style={contentStyle}>
+          <MDXRemote {...content} components={components} />
+          <ButtonWrapper>
+            {nextStepSlug ? <Button onClick={next}>Next</Button> : <></>}
+          </ButtonWrapper>
+        </div>
+      </SimpleBar>
+    </div>
   )
 }
 

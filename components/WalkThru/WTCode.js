@@ -24,8 +24,11 @@ const Line = styled.div`
   &:hover {
     background-color: #292524;
   }
+  ${Pre}:active & {
+    opacity: ${(props) => (props.highlighted ? '1;' : '0.8;')}
+  }
   ${Pre}:hover & {
-    opacity: ${(props) => (props.highlighted ? '1;' : '0.9;')}
+    opacity: ${(props) => (props.highlighted ? '1;' : '0.8;')}
   }
   ${Pre}.no-highlight & {
     opacity: 1;
@@ -37,8 +40,11 @@ const Token = styled.span`
   -webkit-transition: opacity 100ms linear;
   -ms-transition: opacity 100ms linear;
   transition: opacity 100ms linear;
+  ${Pre}:active & {
+    opacity: ${(props) => (props.highlighted ? '1;' : '0.8;')}
+  }
   ${Pre}:hover & {
-    opacity: ${(props) => (props.highlighted ? '1;' : '0.9;')}
+    opacity: ${(props) => (props.highlighted ? '1;' : '0.8;')}
   }
   ${Pre}.no-highlight & {
     opacity: 1;
@@ -112,6 +118,16 @@ function WTCode({ files, step, sameFile, config }) {
     scrollNewCenter(center)
     setPrevScrollPos(scrollPos)
   }, [content, center, prevScrollPos, sameFile])
+  useEffect(() => {
+    const el = document.querySelector('#code')
+    el.scrollTo(0, 0)
+    function preventDefault(e) {
+      e.stopPropagation()
+      e.stopImmediatePropagation()
+    }
+    el.addEventListener('touchstart', preventDefault, { passive: false })
+    el.addEventListener('touchmove', preventDefault, { passive: false })
+  }, [])
   return (
     <div id="code-wrapper" className={style.codeWrapper}>
       <WTFileBar files={files} activeFile={activeFile} config={config} />
