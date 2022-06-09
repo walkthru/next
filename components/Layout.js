@@ -3,7 +3,10 @@ import Image from 'next/image'
 
 function Layout({ children }) {
   return (
-    <div className="h-screen flex flex-col">
+    <div
+      className="h-screen flex flex-col"
+      style="height:-webkit-fill-available;"
+    >
       <header className="flex-none bg-gray-700 p-4 md:px-8 py-2 flex justify-between align-middle">
         <div className="flex gap-2 items-center">
           <Image alt="Walkthru" src="/logo.png" width={25} height={25} />
