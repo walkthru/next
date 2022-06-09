@@ -8,5 +8,6 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/typography'),
+    require('@rvxlab/tailwind-plugin-ios-full-height'),
   ],
 }

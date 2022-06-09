@@ -3,7 +3,7 @@ import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div>
+    <>
       <Head>
         <link rel="shortcut icon" href="/favicon.png" />
         <meta
@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }) {
         />
       </Head>
       <Component {...pageProps} />
-    </div>
+    </>
   )
 }
 

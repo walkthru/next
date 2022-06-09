@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 function Layout({ children }) {
   return (
-    <div className="h-screen flex flex-col">
+    <div className="flex flex-col h-screen h-screen-ios min-h-screen-ios">
       <header className="flex-none bg-gray-700 p-4 md:px-8 py-2 flex justify-between align-middle">
         <div className="flex gap-2 items-center">
           <Image alt="Walkthru" src="/logo.png" width={25} height={25} />
@@ -19,7 +19,7 @@ function Layout({ children }) {
           <GithubIcon className="fill-white h-6 w-6" />
         </a>
       </header>
-      <div className="overflow-hidden p-4 md:p-8 bg-gray-50 flex-auto">
+      <div className="overflow-hidden p-4 md:p-8 bg-gray-50 flex-auto flex">
         {children}
       </div>
       <footer className="flex-none bg-gray-200 py-2">

@@ -28,7 +28,7 @@ function Slug({ code, instructions, config }) {
   }, [router.events, config])
   return (
     <Layout>
-      <div className="flex h-full">
+      <div className="flex w-full">
         <WalkThru
           code={code}
           instructions={instructions}

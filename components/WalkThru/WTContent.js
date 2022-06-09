@@ -1,6 +1,7 @@
 import { MDXRemote } from 'next-mdx-remote'
 import { useRouter } from 'next/router'
 import styled from 'styled-components'
+import { useEffect } from 'react'
 
 const ContentWrapper = styled.div`
   padding-left: 0.25rem;
@@ -35,8 +36,11 @@ function WTContent({ content, tutorialSlug, nextStepSlug, classes }) {
   function next() {
     router.push(`${tutorialSlug}#${nextStepSlug}`)
   }
+  useEffect(() => {
+    document.querySelector('#content-wrapper').scrollTo(0, 0)
+  }, [content])
   return (
-    <ContentWrapper className={classes}>
+    <ContentWrapper className={classes} id="content-wrapper">
       <MDXRemote {...content} components={components} />
       <ButtonWrapper>
         {nextStepSlug ? <Button onClick={next}>Next</Button> : <></>}
