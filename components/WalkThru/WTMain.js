@@ -31,9 +31,10 @@ const ColLeft = styled.div`
 
 const ColRight = styled.div`
   display: flex;
+  min-height: 0;
   @media (max-width: 639px) {
     width: 100%;
-    max-height: 50%;
+    height: 100%;
   }
   @media (min-width: 640px) and (max-width: 767px) {
     width: 50%;

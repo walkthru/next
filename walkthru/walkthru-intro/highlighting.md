@@ -7,6 +7,6 @@ center: 4
 
 One of the most useful features of Walkthru is the ability to highlight specific lines of a code file.
 
-To do this, set the `focus` property in the frontmatter and indicate the lines to highlight. 
+To do this, set the `focus` property in the frontmatter and indicate the range of lines to highlight. 
 
 You can also specify the `center` property which indicates which line should be in the center of the page when scrolled to. This is useful in larger files as you'll see in a moment.

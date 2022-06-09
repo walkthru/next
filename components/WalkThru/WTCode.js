@@ -52,9 +52,12 @@ const LineNo = styled.div`
   flex-shrink: 0;
 `
 
-const LineContent = styled.div`
-  white-space: pre-wrap;
+/*
+white-space: pre-wrap;
   word-break: break-word;
+ */
+const LineContent = styled.div`
+  
 `
 
 function getHighlightedLines(focus) {
