@@ -1,13 +1,9 @@
 import { MDXRemote } from 'next-mdx-remote'
 import { useRouter } from 'next/router'
 import styled from 'styled-components'
-import { useEffect } from 'react'
-
-const ContentWrapper = styled.div`
-  padding-left: 0.25rem;
-  padding-right: 0.5rem;
-  overflow-y: auto;
-`
+import { useEffect, useRef } from 'react'
+import SimpleBar from 'simplebar-react'
+import 'simplebar-react/dist/simplebar.min.css'
 
 const ButtonWrapper = styled.div`
   justify-content: flex-end;
@@ -31,21 +27,38 @@ const Button = styled.button`
 
 const components = {}
 
+const contentStyle = {
+  paddingLeft: '0.25rem',
+  paddingRight: '0.5rem',
+}
+
 function WTContent({ content, tutorialSlug, nextStepSlug, classes }) {
   const router = useRouter()
   function next() {
     router.push(`${tutorialSlug}#${nextStepSlug}`)
   }
+  const ref = useRef()
   useEffect(() => {
-    document.querySelector('#content-wrapper').scrollTo(0, 0)
+    ref.current.recalculate()
+  }, [])
+  useEffect(() => {
+    const el = ref.current.getScrollElement()
+    el.scrollTo(0, 0)
   }, [content])
   return (
-    <ContentWrapper className={classes} id="content-wrapper">
-      <MDXRemote {...content} components={components} />
-      <ButtonWrapper>
-        {nextStepSlug ? <Button onClick={next}>Next</Button> : <></>}
-      </ButtonWrapper>
-    </ContentWrapper>
+    <SimpleBar
+      style={{ minHeight: 0 }}
+      forceVisible="y"
+      autoHide={false}
+      ref={ref}
+    >
+      <div className={classes} style={contentStyle}>
+        <MDXRemote {...content} components={components} />
+        <ButtonWrapper>
+          {nextStepSlug ? <Button onClick={next}>Next</Button> : <></>}
+        </ButtonWrapper>
+      </div>
+    </SimpleBar>
   )
 }
 

@@ -17,6 +17,7 @@ const Wrapper = styled.div`
 const ColLeft = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 1rem;
   @media (max-width: 639px) {
     width: 100%;
     max-height: 50%;
