@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { animateScroll } from 'react-scroll'
 import style from './WTCode.module.css'
 import Highlight, { defaultProps } from 'prism-react-renderer'
@@ -80,13 +80,12 @@ function getHighlightedLines(focus) {
   }, [])
 }
 
-function scrollNewCenter(center) {
-  const preEl = document.querySelector('#code')
-  const codeEl = document.querySelector('#code > code')
+function scrollNewCenter(center, el) {
+  const codeEl = el.firstChild
   const count = codeEl.querySelectorAll('.__line-no').length
   if (count > 1) {
     const lineHeight = codeEl.offsetHeight / count
-    const scrollPos = lineHeight * center - preEl.offsetHeight / 2
+    const scrollPos = lineHeight * center - el.offsetHeight / 2
     animateScroll.scrollTo(scrollPos, {
       containerId: 'code',
       duration: 500,
@@ -96,6 +95,7 @@ function scrollNewCenter(center) {
 
 function WTCode({ files, step, sameFile, config }) {
   const { focus, language, center } = step.frontmatter
+  const ref = useRef()
   const active = step.frontmatter.file
   const [content, setContent] = useState('')
   const [prevScrollPos, setPrevScrollPos] = useState(0)
@@ -113,23 +113,16 @@ function WTCode({ files, step, sameFile, config }) {
         containerId: 'code',
         duration: 0,
       })
-      scrollPos = document.querySelector('#code').scrollTop
+      scrollPos = ref.current.scrollTop
     }
-    scrollNewCenter(center)
+    scrollNewCenter(center, ref.current)
     setPrevScrollPos(scrollPos)
   }, [content, center, prevScrollPos, sameFile])
   useEffect(() => {
-    const el = document.querySelector('#code')
-    el.scrollTo(0, 0)
-    function preventDefault(e) {
-      e.stopPropagation()
-      e.stopImmediatePropagation()
-    }
-    el.addEventListener('touchstart', preventDefault, { passive: false })
-    el.addEventListener('touchmove', preventDefault, { passive: false })
+    ref.current.scrollTo(0, 0)
   }, [])
   return (
-    <div id="code-wrapper" className={style.codeWrapper}>
+    <div className={style.codeWrapper}>
       <WTFileBar files={files} activeFile={activeFile} config={config} />
       <Highlight
         {...defaultProps}
@@ -140,7 +133,7 @@ function WTCode({ files, step, sameFile, config }) {
         {({ className, style, tokens, getLineProps, getTokenProps }) => {
           return (
             <Pre
-              id="code"
+              ref={ref}
               className={`${className} ${
                 highlightedLines.length ? '' : 'no-highlight'
               }`}

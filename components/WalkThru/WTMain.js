@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import NoSSR from './NoSSR'
 import WTSelect from './WTSelect'
 import WTContent from './WTContent'
@@ -65,8 +65,18 @@ function WTMain({
       setLastStepFile(instructions[stepIndex - 1].frontmatter.file)
     }
   }, [stepSlug, instructions])
+  const ref = useRef()
+  useEffect(() => {
+    const el = ref.current
+    function preventDefault(e) {
+      e.stopPropagation()
+      e.stopImmediatePropagation()
+    }
+    el.addEventListener('touchstart', preventDefault, { passive: false })
+    el.addEventListener('touchmove', preventDefault, { passive: false })
+  }, [])
   return (
-    <Wrapper>
+    <Wrapper ref={ref}>
       <ColLeft>
         <NoSSR>
           <WTSelect

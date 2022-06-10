@@ -45,16 +45,6 @@ function WTContent({ content, tutorialSlug, nextStepSlug, classes }) {
   useEffect(() => {
     ref.current.getScrollElement().scrollTo(0, 0)
   }, [content])
-  useEffect(() => {
-    const el = ref.current.wrapperEl.parentElement.parentElement
-    console.log(el)
-    function preventDefault(e) {
-      e.stopPropagation()
-      e.stopImmediatePropagation()
-    }
-    el.addEventListener('touchstart', preventDefault, { passive: false })
-    el.addEventListener('touchmove', preventDefault, { passive: false })
-  }, [])
   return (
     <div style={{ overflow: 'hidden' }}>
       <SimpleBar
