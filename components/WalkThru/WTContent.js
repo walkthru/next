@@ -23,6 +23,8 @@ const Button = styled.button`
   --tw-bg-opacity: 1;
   background-color: rgb(245 158 11 / var(--tw-bg-opacity));
   border-radius: 0.25rem;
+  display: flex;
+  gap: 0.25rem;
 `
 
 const components = {}
@@ -31,6 +33,30 @@ const contentStyle = {
   paddingLeft: '0.25rem',
   paddingRight: '0.5rem',
 }
+
+function RightArrow({ className }) {
+  return (
+    <svg
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
+      />
+    </svg>
+  )
+}
+
+const RightArrowStyled = styled(RightArrow)`
+  height: 1rem;
+  width: 1rem;
+`
 
 function WTContent({ content, tutorialSlug, nextStepSlug, classes }) {
   const router = useRouter()
@@ -59,7 +85,14 @@ function WTContent({ content, tutorialSlug, nextStepSlug, classes }) {
         <div className={classes} style={contentStyle}>
           <MDXRemote {...content} components={components} />
           <ButtonWrapper>
-            {nextStepSlug ? <Button onClick={next}>Next</Button> : <></>}
+            {nextStepSlug ? (
+              <Button onClick={next}>
+                <span>Next</span>
+                <RightArrowStyled />
+              </Button>
+            ) : (
+              <></>
+            )}
           </ButtonWrapper>
         </div>
       </SimpleBar>

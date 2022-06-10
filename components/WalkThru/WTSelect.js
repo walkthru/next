@@ -27,7 +27,7 @@ function WTSelect({ tutorialSlug, stepSlug, steps, title, classes }) {
     setValue(options[0].options.find((o) => o.value === stepSlug))
   }, [stepSlug, options])
   const selectStyles = {
-    fontSize: '0.75rem',
+    fontSize: '14px !important',
     color: 'hsl(0, 0%, 20%)',
   }
   return (
@@ -41,7 +41,7 @@ function WTSelect({ tutorialSlug, stepSlug, steps, title, classes }) {
         container: (base) => {
           return {
             ...base,
-            fontSize: '0.75rem',
+            ...selectStyles,
             lineHeight: '1rem',
           }
         },

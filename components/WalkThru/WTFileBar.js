@@ -14,9 +14,9 @@ const Li = styled.li`
   border-radius: 0.25rem;
   cursor: pointer;
   flex-shrink: 0;
-  @media (max-width: 639px) {
-    display: ${(props) => (props.fileActive ? 'inline-block;' : 'none;')}
-  }
+  align-items: center;
+  gap: 0.25rem;
+  display: ${(props) => (props.fileActive ? 'flex;' : 'none;')}
 `
 
 const FileName = styled.div`
@@ -33,24 +33,53 @@ const FilePath = styled.div`
   }
 `
 
+function GitHubLink(owner, repo, path) {
+  return (
+    <a
+      href={`https://github.com/${owner}/${repo}/blob/master/${path}`}
+      target="_blank"
+      rel="noreferrer"
+    >
+      <GithubIcon />
+    </a>
+  )
+}
+
+function FileIcon({ className }) {
+  return (
+    <svg
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+    >
+      <path
+        fillRule="evenodd"
+        d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z"
+        clipRule="evenodd"
+      />
+    </svg>
+  )
+}
+
+const FileIconStyled = styled(FileIcon)`
+  height: 1rem;
+  width: 1rem;
+`
+
 function WTFileBar({ files, activeFile, config }) {
   return (
     <div className={style.codeFiles}>
       <ul>
         {files.map((file) => (
           <Li key={file.path} fileActive={file.path === activeFile.path}>
+            <FileIconStyled />
             <FileName>{file.path.split('/').pop()}</FileName>
             <FilePath>{file.path}</FilePath>
           </Li>
         ))}
       </ul>
-      <a
-        href={`https://github.com/${config.code.owner}/${config.code.repo}/blob/master/${activeFile.path}`}
-        target="_blank"
-        rel="noreferrer"
-      >
-        <GithubIcon />
-      </a>
+      {/*<GitHubLink owner={config.code.owner} repo={config.code.repo} path={activeFile.path} />*/}
     </div>
   )
 }
