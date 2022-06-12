@@ -25,6 +25,9 @@ const Button = styled.button`
   border-radius: 0.25rem;
   display: flex;
   gap: 0.25rem;
+  @media (max-width: 639px) {
+    display: none;
+  }
 `
 
 const components = {}

@@ -1,14 +1,34 @@
-import style from './WTCode.module.css'
 import GithubIcon from './GithubIcon'
 import styled from 'styled-components'
 
+const FileBar = styled.div`
+  padding: 0.5rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(41 37 36 / var(--tw-bg-opacity));
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  display: flex;
+`
+
+const Ul = styled.ul`
+  gap: 0.5rem;
+  justify-content: flex-end;
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+`
+
 const Li = styled.li`
   background-color: ${(props) =>
-    props.fileActive ? 'rgb(87 83 78);' : 'none;'}
+    props.fileActive ? 'rgb(68, 64, 60);' : 'none;'}
   color: ${(props) =>
     props.fileActive ? 'rgb(231 229 228);' : 'rgb(168 162 158);'}
   font-size: 0.75rem;
-  line-height: 1rem;
+  line-height: 1.25rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   border-radius: 0.25rem;
@@ -17,6 +37,10 @@ const Li = styled.li`
   align-items: center;
   gap: 0.25rem;
   display: ${(props) => (props.fileActive ? 'flex;' : 'none;')}
+  &:hover {
+    background-color: ${(props) =>
+      props.fileActive ? 'rgb(87 83 78);' : 'inherit;'}
+  }
 `
 
 const FileName = styled.div`
@@ -69,8 +93,8 @@ const FileIconStyled = styled(FileIcon)`
 
 function WTFileBar({ files, activeFile, config }) {
   return (
-    <div className={style.codeFiles}>
-      <ul>
+    <FileBar>
+      <Ul>
         {files.map((file) => (
           <Li key={file.path} fileActive={file.path === activeFile.path}>
             <FileIconStyled />
@@ -78,9 +102,9 @@ function WTFileBar({ files, activeFile, config }) {
             <FilePath>{file.path}</FilePath>
           </Li>
         ))}
-      </ul>
+      </Ul>
       {/*<GitHubLink owner={config.code.owner} repo={config.code.repo} path={activeFile.path} />*/}
-    </div>
+    </FileBar>
   )
 }
 

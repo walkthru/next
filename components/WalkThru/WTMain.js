@@ -3,6 +3,7 @@ import NoSSR from './NoSSR'
 import WTSelect from './WTSelect'
 import WTContent from './WTContent'
 import WTCode from './WTCode'
+import WTMobileNav from './WTMobileNav'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
@@ -57,10 +58,12 @@ function WTMain({
   const [lastStepFile, setLastStepFile] = useState('')
   const [step, setStep] = useState(instructions[stepIndex])
   const [nextStep, setNextStep] = useState(instructions[stepIndex + 1])
+  const [prevStep, setPrevStep] = useState(instructions[stepIndex - 1])
   useEffect(() => {
     const stepIndex = instructions.findIndex((step) => step.slug === stepSlug)
     setStep(instructions[stepIndex])
     setNextStep(instructions[stepIndex + 1])
+    setPrevStep(instructions[stepIndex - 1])
     if (stepIndex > 0) {
       setLastStepFile(instructions[stepIndex - 1].frontmatter.file)
     }
@@ -104,6 +107,11 @@ function WTMain({
           />
         </NoSSR>
       </ColRight>
+      <WTMobileNav
+        tutorialSlug={tutorialSlug}
+        nextStepSlug={nextStep ? nextStep.slug : null}
+        prevStepSlug={prevStep ? prevStep.slug : null}
+      />
     </Wrapper>
   )
 }

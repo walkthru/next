@@ -1,10 +1,18 @@
 import { useEffect, useRef, useState } from 'react'
 import { animateScroll } from 'react-scroll'
-import style from './WTCode.module.css'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import theme from './okaidia'
 import styled from 'styled-components'
 import WTFileBar from './WTFileBar'
+
+const CodeWrapper = styled.div`
+  --tw-bg-opacity: 1;
+  background-color: rgb(28 25 23 / var(--tw-bg-opacity));
+  border-radius: 0.25rem;
+  flex-direction: column;
+  width: 100%;
+  display: flex;
+`
 
 const Pre = styled.pre`
   overflow-y: auto;
@@ -17,15 +25,19 @@ const Code = styled.code`
   display: flex;
   flex-direction: row;
   overflow-x: hidden;
+  line-height: 1.8;
+  font-size: 13px;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace, serif;
 `
 
 const LineNumbers = styled.div`
-  overflow: scroll;
   flex-shrink: 0;
 `
 
 const Lines = styled.div`
   flex-grow: 1;
+  overflow: scroll;
 `
 
 const Highlightable = styled.div`
@@ -49,8 +61,6 @@ const LineNumber = styled(Highlightable)`
   justify-content: center;
   width: 3rem;
   flex-shrink: 0;
-  background-color: ${(props) =>
-    props.highlighted ? '#100d0b;' : 'rgb(28 25 23);'};
 `
 
 const Line = styled(Highlightable)`
@@ -130,7 +140,7 @@ function WTCode({ files, step, sameFile, config }) {
     ref.current.scrollTo(0, 0)
   }, [])
   return (
-    <div className={style.codeWrapper}>
+    <CodeWrapper>
       <WTFileBar files={files} activeFile={activeFile} config={config} />
       <Highlight
         {...defaultProps}
@@ -195,7 +205,7 @@ function WTCode({ files, step, sameFile, config }) {
           )
         }}
       </Highlight>
-    </div>
+    </CodeWrapper>
   )
 }
 
