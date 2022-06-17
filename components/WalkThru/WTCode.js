@@ -111,7 +111,7 @@ function scrollNewCenter(center, el) {
   }
 }
 
-function WTCode({ files, step, sameFile, config }) {
+function WTCode({ files, step, sameFile, config, drawerClick }) {
   const { focus, language, center } = step.frontmatter
   const ref = useRef()
   const active = step.frontmatter.file
@@ -141,7 +141,12 @@ function WTCode({ files, step, sameFile, config }) {
   }, [])
   return (
     <CodeWrapper>
-      <WTFileBar files={files} activeFile={activeFile} config={config} />
+      <WTFileBar
+        files={files}
+        activeFile={activeFile}
+        config={config}
+        drawerClick={drawerClick}
+      />
       <Highlight
         {...defaultProps}
         theme={theme}

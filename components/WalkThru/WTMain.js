@@ -3,15 +3,30 @@ import NoSSR from './NoSSR'
 import WTSelect from './WTSelect'
 import WTContent from './WTContent'
 import WTCode from './WTCode'
-import WTMobileNav from './WTMobileNav'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
   gap: 1rem;
   width: 100%;
   display: flex;
+  flex-direction: column;
   @media (max-width: 639px) {
-    flex-direction: column;
+  }
+`
+
+const Cols = styled.div`
+  gap: 1rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: no-wrap;
+  position: relative;
+  @media (max-width: 639px) {
+    transition: 0.3s ease-in-out;
+    transform: ${(props) =>
+      props.showCodeMobile
+        ? 'translateX(calc(-100% + 2rem))'
+        : 'translateX(0)'};
   }
 `
 
@@ -20,8 +35,9 @@ const ColLeft = styled.div`
   flex-direction: column;
   gap: 1rem;
   @media (max-width: 639px) {
-    width: 100%;
-    max-height: 50%;
+    width: calc(100% - 3rem);
+    height: 100%;
+    min-width: calc(100% - 3rem);
   }
   @media (min-width: 640px) and (max-width: 767px) {
     width: 50%;
@@ -46,6 +62,14 @@ const ColRight = styled.div`
   }
 `
 
+const Select = (props) => {
+  return (
+    <div className={props.className}>
+      <WTSelect {...props} />
+    </div>
+  )
+}
+
 function WTMain({
   code,
   instructions,
@@ -59,6 +83,7 @@ function WTMain({
   const [step, setStep] = useState(instructions[stepIndex])
   const [nextStep, setNextStep] = useState(instructions[stepIndex + 1])
   const [prevStep, setPrevStep] = useState(instructions[stepIndex - 1])
+  const [showCodeMobile, setShowCodeMobile] = useState(false)
   useEffect(() => {
     const stepIndex = instructions.findIndex((step) => step.slug === stepSlug)
     setStep(instructions[stepIndex])
@@ -79,40 +104,40 @@ function WTMain({
     el.addEventListener('touchmove', preventDefault, { passive: false })
   }, [])
   return (
-    <Wrapper ref={ref}>
-      <ColLeft>
-        <NoSSR>
-          <WTSelect
-            tutorialSlug={tutorialSlug}
-            stepSlug={stepSlug}
-            steps={instructions}
-            title={config.title}
-            classes={classes.select}
-          />
-          <WTContent
-            content={step}
-            tutorialSlug={tutorialSlug}
-            nextStepSlug={nextStep ? nextStep.slug : null}
-            classes={classes.instructions}
-          />
-        </NoSSR>
-      </ColLeft>
-      <ColRight>
-        <NoSSR>
-          <WTCode
-            files={code}
-            step={step}
-            sameFile={step.frontmatter.file === lastStepFile}
-            config={config}
-          />
-        </NoSSR>
-      </ColRight>
-      <WTMobileNav
-        tutorialSlug={tutorialSlug}
-        nextStepSlug={nextStep ? nextStep.slug : null}
-        prevStepSlug={prevStep ? prevStep.slug : null}
-      />
-    </Wrapper>
+    <>
+      <Wrapper ref={ref}>
+        <Cols showCodeMobile={showCodeMobile}>
+          <ColLeft>
+            <NoSSR>
+              <WTSelect
+                tutorialSlug={tutorialSlug}
+                stepSlug={stepSlug}
+                steps={instructions}
+                title={config.title}
+                classes={classes.select}
+              />
+              <WTContent
+                content={step}
+                tutorialSlug={tutorialSlug}
+                nextStepSlug={nextStep ? nextStep.slug : null}
+                classes={classes.instructions}
+              />
+            </NoSSR>
+          </ColLeft>
+          <ColRight>
+            <NoSSR>
+              <WTCode
+                files={code}
+                step={step}
+                sameFile={step.frontmatter.file === lastStepFile}
+                config={config}
+                drawerClick={() => setShowCodeMobile(!showCodeMobile)}
+              />
+            </NoSSR>
+          </ColRight>
+        </Cols>
+      </Wrapper>
+    </>
   )
 }
 
