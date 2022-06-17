@@ -6,7 +6,7 @@ focus: 32-42
 center: 37
 ---
 
-Returning to the Walkthru component, the `code`,  `instructions`, and `config` props should be populated with the data returned from `getData` in the previous steps.
+Returning to the Walkthru component, the `code`,  `instructions`, and `config` props should be populated with the data returned from `getData` in the previous step.
 
 You'll also need two other props: `tutorialSlug` and `stepSlug`. These are the slugs of the current walkthru tutorial and the current step respectively.
 

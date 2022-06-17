@@ -8,4 +8,6 @@ center: 37
 
 That concludes the introduction to Walkthru. 
 
-If you're interested in using Walkthru or learning more, be sure to check out the GitHub repo and follow us on Twitter.
+If you're interested in using Walkthru or learning more, be sure to check out the [GitHub repo](https://github.com/walkthru/walkthru).
+
+*Created by Anthony Gore. Follow me on [Twitter](https://twitter.com/anthonygore).*

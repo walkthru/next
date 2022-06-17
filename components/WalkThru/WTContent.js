@@ -28,7 +28,9 @@ const Button = styled.button`
   gap: 0.25rem;
 `
 
-const components = {}
+const components = {
+  a: (props) => <a target="_blank" {...props}></a>,
+}
 
 const contentStyle = {
   paddingLeft: '0.25rem',

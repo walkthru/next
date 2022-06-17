@@ -13,4 +13,4 @@ It's open source and can be embedded in any web page. It's great for:
 - Documentation
 - Teaching
 
-Click the *Next step* button below to start a quick tour of Walkthru where you'll find out what it can do and how you can use it.
+Let's take a quick tour of Walkthru where you'll find out what it can do and how you can use it.
