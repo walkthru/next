@@ -21,6 +21,7 @@ html, body {
   background-color: #f3f4f6;
   border-radius: 0.25rem;
 }
+
 .prose code:not([class*=language-]):before,
 .prose code:not([class*=language-]):after {
   content: ''

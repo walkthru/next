@@ -10,6 +10,15 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/walkthru-intro',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 module.exports = nextConfig

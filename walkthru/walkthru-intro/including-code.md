@@ -7,4 +7,4 @@ center: 3
 
 The code files used in a walkthru will be pulled from a GitHub repository. 
 
-You can link to a specific file in a step using the `file` frontmatter property.
+You can specify which file to show in a step using the `file` frontmatter property.

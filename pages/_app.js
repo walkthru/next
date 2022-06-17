@@ -5,8 +5,6 @@ import { useEffect } from 'react'
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
     function preventDefault(e) {
-      var source = e.target || e.srcElement
-      console.log('body handler')
       e.preventDefault()
     }
     function disableScroll() {
@@ -18,7 +16,6 @@ function MyApp({ Component, pageProps }) {
       })
     }
     disableScroll()
-    // return () => enableScroll()
   }, [])
   return (
     <>

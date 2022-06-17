@@ -7,18 +7,18 @@
     "files": [
       "walkthru/walkthru-intro/app.jsx",
       "walkthru/walkthru-intro/what-is-a-walkthru.md",
-      "walkthru/walkthru-intro/highlighting.md",
+      "walkthru/walkthru-intro/focusing-code.md",
       "walkthru/walkthru-intro/config.json",
       "pages/[slug].js"
     ]
   },
   "steps": [
-    "intro",
+    "introduction",
     "what-is-a-walkthru",
-    "code-file",
-    "highlighting",
-    "config",
-    "code",
+    "including-code",
+    "focusing-code",
+    "json-config",
+    "config-code",
     "steps-config",
     "app",
     "load-data",

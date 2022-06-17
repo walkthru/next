@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import WTDrawer from './WTDrawer'
 
 const FileBar = styled.div`
-  padding: 0.5rem;
   --tw-bg-opacity: 1;
   background-color: rgb(41 37 36 / var(--tw-bg-opacity));
   border-top-left-radius: 0.25rem;
@@ -17,12 +16,12 @@ const FileBar = styled.div`
 `
 
 const Ul = styled.ul`
+  padding: 0.5rem;
   gap: 0.5rem;
   justify-content: flex-end;
   display: flex;
   list-style: none;
   margin: 0;
-  padding: 0;
   overflow: hidden;
 `
 
@@ -95,10 +94,10 @@ const FileIconStyled = styled(FileIcon)`
   width: 1rem;
 `
 
-function WTFileBar({ files, activeFile, config, drawerClick }) {
+function WTFileBar({ files, activeFile, config, toggleShowCode }) {
   return (
     <FileBar>
-      <WTDrawer drawerClick={drawerClick} />
+      <WTDrawer drawerClick={toggleShowCode} />
       <Ul>
         {files.map((file) => (
           <Li key={file.path} fileActive={file.path === activeFile.path}>

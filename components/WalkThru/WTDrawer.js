@@ -40,10 +40,14 @@ function DrawerTab({ className, drawerClick }) {
 }
 
 const DrawerTabStyled = styled(DrawerTab)`
-  padding-left: 0.25rem;
+  background-color: rgb(87 83 78);
+  border-top-left-radius: 0.25rem;
   display: none;
   @media (max-width: 639px) {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
   }
 `
 

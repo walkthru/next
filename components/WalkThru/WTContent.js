@@ -6,6 +6,7 @@ import SimpleBar from 'simplebar-react'
 import 'simplebar-react/dist/simplebar.min.css'
 
 const ButtonWrapper = styled.div`
+  margin-top: 1rem;
   justify-content: flex-end;
   display: flex;
 `
@@ -84,17 +85,17 @@ function WTContent({ content, tutorialSlug, nextStepSlug, classes }) {
       >
         <div className={classes} style={contentStyle}>
           <MDXRemote {...content} components={components} />
-          <ButtonWrapper>
-            {nextStepSlug ? (
-              <Button onClick={next}>
-                <span>Next</span>
-                <RightArrowStyled />
-              </Button>
-            ) : (
-              <></>
-            )}
-          </ButtonWrapper>
         </div>
+        <ButtonWrapper>
+          {nextStepSlug ? (
+            <Button onClick={next}>
+              <span>Next step</span>
+              <RightArrowStyled />
+            </Button>
+          ) : (
+            <></>
+          )}
+        </ButtonWrapper>
       </SimpleBar>
     </div>
   )

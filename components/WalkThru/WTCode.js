@@ -105,13 +105,13 @@ function scrollNewCenter(center, el) {
     const lineHeight = codeEl.offsetHeight / count
     const scrollPos = lineHeight * center - el.offsetHeight / 2
     animateScroll.scrollTo(scrollPos, {
-      containerId: 'code',
+      containerId: 'scrollContainer',
       duration: 500,
     })
   }
 }
 
-function WTCode({ files, step, sameFile, config, drawerClick }) {
+function WTCode({ files, step, sameFile, config, showCode, toggleShowCode }) {
   const { focus, language, center } = step.frontmatter
   const ref = useRef()
   const active = step.frontmatter.file
@@ -128,7 +128,7 @@ function WTCode({ files, step, sameFile, config, drawerClick }) {
     let scrollPos = 0
     if (sameFile) {
       animateScroll.scrollTo(prevScrollPos, {
-        containerId: 'code',
+        containerId: 'scrollContainer',
         duration: 0,
       })
       scrollPos = ref.current.scrollTop
@@ -139,13 +139,18 @@ function WTCode({ files, step, sameFile, config, drawerClick }) {
   useEffect(() => {
     ref.current.scrollTo(0, 0)
   }, [])
+  function codeClicked() {
+    if (!showCode) {
+      toggleShowCode()
+    }
+  }
   return (
-    <CodeWrapper>
+    <CodeWrapper onClick={codeClicked}>
       <WTFileBar
         files={files}
         activeFile={activeFile}
         config={config}
-        drawerClick={drawerClick}
+        toggleShowCode={toggleShowCode}
       />
       <Highlight
         {...defaultProps}
@@ -160,6 +165,7 @@ function WTCode({ files, step, sameFile, config, drawerClick }) {
               className={`${className} ${
                 highlightedLines.length ? '' : 'no-highlight'
               }`}
+              id="scrollContainer"
             >
               <Code>
                 <LineNumbers>

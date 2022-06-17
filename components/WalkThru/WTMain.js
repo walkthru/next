@@ -131,7 +131,8 @@ function WTMain({
                 step={step}
                 sameFile={step.frontmatter.file === lastStepFile}
                 config={config}
-                drawerClick={() => setShowCodeMobile(!showCodeMobile)}
+                showCode={showCodeMobile}
+                toggleShowCode={() => setShowCodeMobile(!showCodeMobile)}
               />
             </NoSSR>
           </ColRight>
