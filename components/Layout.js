@@ -34,8 +34,9 @@ function Layout({ children }) {
             href="https://github.com/walkthru/walkthru"
             rel="noreferrer"
           >
-            Source on GitHub.
+            Source on GitHub
           </a>
+          .
         </p>
       </footer>
     </div>

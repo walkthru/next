@@ -4,5 +4,8 @@
     "prettier",
     "plugin:prettier/recommended"
   ],
-  "plugins": ["prettier"]
+  "plugins": ["prettier"],
+  "rules": {
+    "@next/next/no-img-element": "off"
+  }
 }
