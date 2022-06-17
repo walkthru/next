@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { useEffect, useRef } from 'react'
 
 function Layout({ children }) {
@@ -16,7 +15,7 @@ function Layout({ children }) {
     <div className="flex flex-col h-screen h-screen-ios min-h-screen-ios">
       <header className="flex-none bg-gray-700 p-4 md:px-8 py-2 flex justify-between align-middle">
         <div className="flex gap-2 items-center">
-          <Image alt="Walkthru" src="/logo.png" width={25} height={25} />
+          <img alt="Walkthru" src="/logo.png" width="25" height="25" />
           <h1 className="text-white text-lg font-bold leading-none">
             WalkThru
           </h1>
