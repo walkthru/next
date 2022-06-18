@@ -39,7 +39,10 @@ function MyApp({ Component, pageProps }) {
           property="og:description"
           content="A better way of explaining code on the web."
         />
-        <meta property="og:image" content="/meta.png" />
+        <meta
+          property="og:image"
+          content="https://walkthru-next-demo.netlify.app/meta.png"
+        />
 
         <meta property="twitter:card" content="summary_large_image" />
         <meta
@@ -51,7 +54,10 @@ function MyApp({ Component, pageProps }) {
           property="twitter:description"
           content="A better way of explaining code on the web."
         />
-        <meta property="twitter:image" content="/meta.png" />
+        <meta
+          property="twitter:image"
+          content="https://walkthru-next-demo.netlify.app/meta.png"
+        />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1"
