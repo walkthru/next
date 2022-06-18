@@ -43,7 +43,7 @@ const DrawerTabStyled = styled(DrawerTab)`
   background-color: rgb(87 83 78);
   border-top-left-radius: 0.25rem;
   display: none;
-  @media (max-width: 639px) {
+  @media (max-width: 767px) {
     display: flex;
     align-items: center;
     justify-content: center;

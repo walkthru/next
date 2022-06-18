@@ -10,7 +10,7 @@ const FileBar = styled.div`
   gap: 0.5rem;
   justify-content: space-between;
   display: flex;
-  @media (min-width: 640px) {
+  @media (min-width: 768px) {
     justify-content: end;
   }
 `

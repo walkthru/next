@@ -48,9 +48,6 @@ const Highlightable = styled.div`
   ${Pre}:active & {
     opacity: ${(props) => (props.highlighted ? '1;' : '0.8;')}
   }
-  ${Pre}:hover & {
-    opacity: ${(props) => (props.highlighted ? '1;' : '0.8;')}
-  }
   ${Pre}.no-highlight & {
     opacity: 1;
   }
@@ -66,10 +63,7 @@ const LineNumber = styled(Highlightable)`
 const Line = styled(Highlightable)`
   display: flex;
   background-color: ${(props) =>
-    props.highlighted ? '#100d0b;' : 'rgb(28 25 23);'}
-  &:hover {
-    background-color: #292524;
-  }
+    props.highlighted ? '#100d0b;' : 'rgb(28 25 23);'};
 `
 
 const LineContent = styled.div`

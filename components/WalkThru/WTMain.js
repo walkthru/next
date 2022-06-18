@@ -21,7 +21,7 @@ const Cols = styled.div`
   display: flex;
   flex-wrap: no-wrap;
   position: relative;
-  @media (max-width: 639px) {
+  @media (max-width: 767px) {
     transition: 0.3s ease-in-out;
     transform: ${(props) =>
       props.showCodeMobile
@@ -34,15 +34,15 @@ const ColLeft = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  @media (max-width: 639px) {
+  @media (max-width: 767px) {
     width: calc(100% - 3rem);
     height: 100%;
     min-width: calc(100% - 3rem);
   }
-  @media (min-width: 640px) and (max-width: 767px) {
+  @media (min-width: 768px) and (max-width: 1023px) {
     width: 50%;
   }
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     width: 33.3%;
   }
 `
@@ -50,14 +50,14 @@ const ColLeft = styled.div`
 const ColRight = styled.div`
   display: flex;
   min-height: 0;
-  @media (max-width: 639px) {
+  @media (max-width: 767px) {
     width: 100%;
     height: 100%;
   }
-  @media (min-width: 640px) and (max-width: 767px) {
+  @media (min-width: 768px) and (max-width: 1023px) {
     width: 50%;
   }
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     width: 66.6%;
   }
 `
