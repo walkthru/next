@@ -56,19 +56,13 @@ const ColRight = styled.div`
   }
   @media (min-width: 768px) and (max-width: 1023px) {
     width: 50%;
+    min-width: 50%;
   }
   @media (min-width: 1024px) {
     width: 66.6%;
+    min-width: 66.6%;
   }
 `
-
-const Select = (props) => {
-  return (
-    <div className={props.className}>
-      <WTSelect {...props} />
-    </div>
-  )
-}
 
 function WTMain({
   code,

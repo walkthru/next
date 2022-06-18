@@ -3,20 +3,21 @@ import '../styles/globals.css'
 import { useEffect } from 'react'
 
 function MyApp({ Component, pageProps }) {
-  useEffect(() => {
-    function preventDefault(e) {
-      e.preventDefault()
-    }
-    function disableScroll() {
-      document.body.addEventListener('touchmove', preventDefault, {
-        passive: false,
-      })
-      document.body.addEventListener('touchstart', preventDefault, {
-        passive: false,
-      })
-    }
+  function preventDefault(e) {
+    e.preventDefault()
+    e.stopImmediatePropagation()
+  }
+  function disableScroll() {
+    document.body.addEventListener('touchmove', preventDefault, {
+      passive: false,
+    })
+    document.body.addEventListener('touchstart', preventDefault, {
+      passive: false,
+    })
+  }
+  if (typeof document !== 'undefined') {
     disableScroll()
-  }, [])
+  }
   return (
     <>
       <Head>

@@ -4,6 +4,7 @@ import Highlight, { defaultProps } from 'prism-react-renderer'
 import theme from './okaidia'
 import styled from 'styled-components'
 import WTFileBar from './WTFileBar'
+import WTDrawer from './WTDrawer'
 
 const CodeWrapper = styled.div`
   --tw-bg-opacity: 1;
@@ -12,6 +13,7 @@ const CodeWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   display: flex;
+  position: relative;
 `
 
 const Pre = styled.pre`
@@ -56,8 +58,9 @@ const Highlightable = styled.div`
 const LineNumber = styled(Highlightable)`
   display: inline-flex;
   justify-content: center;
-  width: 3rem;
+  width: 3.5rem;
   flex-shrink: 0;
+  z-index: 2;
 `
 
 const Line = styled(Highlightable)`
@@ -133,13 +136,9 @@ function WTCode({ files, step, sameFile, config, showCode, toggleShowCode }) {
   useEffect(() => {
     ref.current.scrollTo(0, 0)
   }, [])
-  function codeClicked() {
-    if (!showCode) {
-      toggleShowCode()
-    }
-  }
   return (
-    <CodeWrapper onClick={codeClicked}>
+    <CodeWrapper>
+      <WTDrawer drawerClick={toggleShowCode} />
       <WTFileBar
         files={files}
         activeFile={activeFile}

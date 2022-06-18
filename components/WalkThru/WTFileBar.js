@@ -1,6 +1,5 @@
 import GithubIcon from './GithubIcon'
 import styled from 'styled-components'
-import WTDrawer from './WTDrawer'
 
 const FileBar = styled.div`
   --tw-bg-opacity: 1;
@@ -8,11 +7,8 @@ const FileBar = styled.div`
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
   gap: 0.5rem;
-  justify-content: space-between;
+  justify-content: end;
   display: flex;
-  @media (min-width: 768px) {
-    justify-content: end;
-  }
 `
 
 const Ul = styled.ul`
@@ -94,10 +90,9 @@ const FileIconStyled = styled(FileIcon)`
   width: 1rem;
 `
 
-function WTFileBar({ files, activeFile, config, toggleShowCode }) {
+function WTFileBar({ files, activeFile, config }) {
   return (
     <FileBar>
-      <WTDrawer drawerClick={toggleShowCode} />
       <Ul>
         {files.map((file) => (
           <Li key={file.path} fileActive={file.path === activeFile.path}>

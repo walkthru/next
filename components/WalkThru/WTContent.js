@@ -6,8 +6,8 @@ import SimpleBar from 'simplebar-react'
 import 'simplebar-react/dist/simplebar.min.css'
 
 const ButtonWrapper = styled.div`
-  margin-top: 1rem;
-  justify-content: flex-end;
+  margin-top: 1.25rem;
+  justify-content: flex-start;
   display: flex;
 `
 
