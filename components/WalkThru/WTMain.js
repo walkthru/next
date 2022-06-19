@@ -4,6 +4,7 @@ import WTSelect from './WTSelect'
 import WTContent from './WTContent'
 import WTCode from './WTCode'
 import styled from 'styled-components'
+import WTDrawer from './WTDrawer'
 
 const Wrapper = styled.div`
   gap: 1rem;
@@ -11,6 +12,11 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   @media (max-width: 639px) {
+  }
+  @supports (-webkit-touch-callout: none) and (not (translate: none)) {
+    & > * + * {
+      margin-left: 1rem;
+    }
   }
 `
 
@@ -27,6 +33,11 @@ const Cols = styled.div`
       props.showCodeMobile
         ? 'translateX(calc(-100% + 2rem))'
         : 'translateX(0)'};
+  }
+  @supports (-webkit-touch-callout: none) and (not (translate: none)) {
+    & > * + * {
+      margin-left: 1rem;
+    }
   }
 `
 
@@ -45,6 +56,11 @@ const ColLeft = styled.div`
   @media (min-width: 1024px) {
     width: 33.3%;
   }
+  @supports (-webkit-touch-callout: none) and (not (translate: none)) {
+    & > * + * {
+      margin-top: 1rem;
+    }
+  }
 `
 
 const ColRight = styled.div`
@@ -53,6 +69,7 @@ const ColRight = styled.div`
   @media (max-width: 767px) {
     width: 100%;
     height: 100%;
+    min-width: 100%;
   }
   @media (min-width: 768px) and (max-width: 1023px) {
     width: 50%;
@@ -120,13 +137,14 @@ function WTMain({
           </ColLeft>
           <ColRight>
             <NoSSR>
+              <WTDrawer
+                drawerClick={() => setShowCodeMobile(!showCodeMobile)}
+              />
               <WTCode
                 files={code}
                 step={step}
                 sameFile={step.frontmatter.file === lastStepFile}
                 config={config}
-                showCode={showCodeMobile}
-                toggleShowCode={() => setShowCodeMobile(!showCodeMobile)}
               />
             </NoSSR>
           </ColRight>

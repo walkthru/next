@@ -46,7 +46,8 @@ const DrawerTabStyled = styled(DrawerTab)`
   height: 2.5rem;
   position: absolute;
   top: calc(50% - 1.25rem);
-  left -1.25rem;
+  right 0.75rem;
+  z-index: 10;
   @media (max-width: 767px) {
     display: flex;
   }

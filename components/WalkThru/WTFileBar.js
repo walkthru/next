@@ -9,6 +9,13 @@ const FileBar = styled.div`
   gap: 0.5rem;
   justify-content: end;
   display: flex;
+  @supports (-webkit-touch-callout: none) and (not (translate: none)) {
+    display: -webkit-box;
+    -webkit-box-pack: flex-end;
+    & > * + * {
+      margin-left: 0.5rem;
+    }
+  }
 `
 
 const Ul = styled.ul`
@@ -19,6 +26,11 @@ const Ul = styled.ul`
   list-style: none;
   margin: 0;
   overflow: hidden;
+  @supports (-webkit-touch-callout: none) and (not (translate: none)) {
+    & > * + * {
+      margin-left: 0.5rem;
+    }
+  }
 `
 
 const Li = styled.li`
@@ -39,6 +51,11 @@ const Li = styled.li`
   &:hover {
     background-color: ${(props) =>
       props.fileActive ? 'rgb(87 83 78);' : 'inherit;'}
+  }
+  @supports (-webkit-touch-callout: none) and (not (translate: none)) {
+    & > * + * {
+      margin-left: 0.25rem;
+    }
   }
 `
 

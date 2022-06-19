@@ -28,7 +28,10 @@ function Slug({ code, instructions, config }) {
   }, [router.events, config])
   return (
     <Layout>
-      <div className="flex w-full relative">
+      <div
+        className="flex w-full relative max-w-screen-xl mx-auto"
+        style={{ maxHeight: '800px' }}
+      >
         <WalkThru
           code={code}
           instructions={instructions}
@@ -36,7 +39,6 @@ function Slug({ code, instructions, config }) {
           tutorialSlug={tutorialSlug}
           stepSlug={stepSlug}
           classes={{
-            select: '',
             instructions: 'prose prose-sm max-w-none',
           }}
         />

@@ -4,7 +4,6 @@ import Highlight, { defaultProps } from 'prism-react-renderer'
 import theme from './okaidia'
 import styled from 'styled-components'
 import WTFileBar from './WTFileBar'
-import WTDrawer from './WTDrawer'
 
 const CodeWrapper = styled.div`
   --tw-bg-opacity: 1;
@@ -60,7 +59,6 @@ const LineNumber = styled(Highlightable)`
   justify-content: center;
   width: 3.5rem;
   flex-shrink: 0;
-  z-index: 2;
 `
 
 const Line = styled(Highlightable)`
@@ -108,7 +106,7 @@ function scrollNewCenter(center, el) {
   }
 }
 
-function WTCode({ files, step, sameFile, config, showCode, toggleShowCode }) {
+function WTCode({ files, step, sameFile, config }) {
   const { focus, language, center } = step.frontmatter
   const ref = useRef()
   const active = step.frontmatter.file
@@ -138,13 +136,7 @@ function WTCode({ files, step, sameFile, config, showCode, toggleShowCode }) {
   }, [])
   return (
     <CodeWrapper>
-      <WTDrawer drawerClick={toggleShowCode} />
-      <WTFileBar
-        files={files}
-        activeFile={activeFile}
-        config={config}
-        toggleShowCode={toggleShowCode}
-      />
+      <WTFileBar files={files} activeFile={activeFile} config={config} />
       <Highlight
         {...defaultProps}
         theme={theme}

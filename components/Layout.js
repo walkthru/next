@@ -13,12 +13,14 @@ function Layout({ children }) {
   }, [])
   return (
     <div className="flex flex-col h-screen h-screen-ios min-h-screen-ios">
-      <header className="flex-none bg-gray-700 p-4 md:px-8 py-2 flex justify-between align-middle">
-        <div className="flex gap-2 items-center">
-          <img alt="Walkthru" src="/logo.png" width="25" height="25" />
-          <h1 className="text-white text-lg font-bold leading-none">
-            WalkThru
-          </h1>
+      <header className="flex-none bg-gray-700 p-4 md:px-8 py-2 ">
+        <div className="max-w-screen-xl flex justify-between align-middle mx-auto">
+          <div className="flex gap-2 items-center">
+            <img alt="Walkthru" src="/logo.png" width="25" height="25" />
+            <h1 className="text-white text-lg font-bold leading-none">
+              WalkThru
+            </h1>
+          </div>
         </div>
       </header>
       <div className="overflow-hidden p-4 md:p-8 bg-gray-50 flex-auto flex">

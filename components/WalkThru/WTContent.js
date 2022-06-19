@@ -26,6 +26,11 @@ const Button = styled.button`
   border-radius: 0.25rem;
   display: flex;
   gap: 0.25rem;
+  @supports (-webkit-touch-callout: none) and (not (translate: none)) {
+    & > * + * {
+      margin-left: 0.25rem;
+    }
+  }
 `
 
 const components = {
