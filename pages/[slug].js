@@ -4,7 +4,8 @@ import { WalkThru } from '@walkthru/react'
 import Layout from '../components/Layout'
 import NoSSR from '../components/NoSSR'
 
-function Slug({ code, instructions, config }) {
+function Slug({ data }) {
+  const { config } = data
   const router = useRouter()
   const segments = router.asPath.split('#')
   let step = segments[1] ? segments[1] : config.steps[0]
@@ -35,9 +36,7 @@ function Slug({ code, instructions, config }) {
       >
         <NoSSR>
           <WalkThru
-            code={code}
-            instructions={instructions}
-            config={config}
+            data={data}
             tutorialSlug={tutorialSlug}
             stepSlug={stepSlug}
             classes={{
@@ -72,8 +71,9 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const githubToken = process.env.GH_PAT
-  const { code, instructions, config } = await getData(params.slug, githubToken)
-  return { props: { code, instructions, config } }
+  return {
+    props: { data: await getData(params.slug, githubToken) },
+  }
 }
 
 export default Slug

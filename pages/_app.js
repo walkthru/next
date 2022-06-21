@@ -30,10 +30,7 @@ function MyApp({ Component, pageProps }) {
         />
 
         <meta property="og:type" content="website" />
-        <meta
-          property="og:url"
-          content="https://walkthru-next-demo.netlify.app/"
-        />
+        <meta property="og:url" content="https://walkthru.netlify.app/" />
         <meta property="og:title" content="WalkThru" />
         <meta
           property="og:description"
@@ -41,14 +38,11 @@ function MyApp({ Component, pageProps }) {
         />
         <meta
           property="og:image"
-          content="https://walkthru-next-demo.netlify.app/meta.png"
+          content="https://walkthru.netlify.app/meta.png"
         />
 
         <meta property="twitter:card" content="summary_large_image" />
-        <meta
-          property="twitter:url"
-          content="https://walkthru-next-demo.netlify.app/"
-        />
+        <meta property="twitter:url" content="https://walkthru.netlify.app/" />
         <meta property="twitter:title" content="WalkThru" />
         <meta
           property="twitter:description"
@@ -56,7 +50,7 @@ function MyApp({ Component, pageProps }) {
         />
         <meta
           property="twitter:image"
-          content="https://walkthru-next-demo.netlify.app/meta.png"
+          content="https://walkthru.netlify.app/meta.png"
         />
         <meta
           name="viewport"
