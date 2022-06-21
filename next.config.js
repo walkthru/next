@@ -1,3 +1,5 @@
+const path = require('path')
+
 const nextConfig = {
   reactStrictMode: true,
   webpack: (config) => {
@@ -5,6 +7,8 @@ const nextConfig = {
       test: /\.md$/,
       use: 'raw-loader',
     })
+    config.resolve.fallback = { fs: false }
+    config.resolve.alias.react = path.resolve('./node_modules/react')
     return config
   },
   compiler: {
@@ -19,6 +23,7 @@ const nextConfig = {
       },
     ]
   },
+  webpack5: true,
 }
 
 module.exports = nextConfig

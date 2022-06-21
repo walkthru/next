@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import WalkThru from '../components/WalkThru/WTMain'
+import { WalkThru } from '@walkthru/react'
 import Layout from '../components/Layout'
+import NoSSR from '../components/NoSSR'
 
 function Slug({ code, instructions, config }) {
   const router = useRouter()
@@ -16,14 +17,14 @@ function Slug({ code, instructions, config }) {
     document.title = config.title
   }, [config])
   useEffect(() => {
-    const onHashChangeStart = (url) => {
-      const segments = url.split('#')
+    const onHashChangeStart = ({ newURL }) => {
+      const segments = newURL.split('#')
       setTutorialSlug(segments[0])
       setStepSlug(segments[1] ? segments[1] : config.steps[0])
     }
-    router.events.on('hashChangeStart', onHashChangeStart)
+    window.addEventListener('hashchange', onHashChangeStart)
     return () => {
-      router.events.off('hashChangeStart', onHashChangeStart)
+      window.removeEventListener('hashchange', onHashChangeStart)
     }
   }, [router.events, config])
   return (
@@ -32,16 +33,18 @@ function Slug({ code, instructions, config }) {
         className="flex w-full relative max-w-screen-xl mx-auto"
         style={{ maxHeight: '800px' }}
       >
-        <WalkThru
-          code={code}
-          instructions={instructions}
-          config={config}
-          tutorialSlug={tutorialSlug}
-          stepSlug={stepSlug}
-          classes={{
-            instructions: 'prose prose-sm max-w-none',
-          }}
-        />
+        <NoSSR>
+          <WalkThru
+            code={code}
+            instructions={instructions}
+            config={config}
+            tutorialSlug={tutorialSlug}
+            stepSlug={stepSlug}
+            classes={{
+              instructions: 'prose prose-sm max-w-none',
+            }}
+          />
+        </NoSSR>
       </div>
     </Layout>
   )
@@ -50,7 +53,7 @@ function Slug({ code, instructions, config }) {
 // This gets called at build time
 
 import fs from 'fs'
-import getData from '../components/WalkThru/getData'
+import { getData } from '@walkthru/data'
 
 export async function getStaticPaths() {
   const paths = fs
