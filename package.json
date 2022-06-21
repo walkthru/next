@@ -10,7 +10,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@walkthru/react": "^0.0.25",
+    "@walkthru/react": "^0.0.26",
     "html-loader": "^3.1.0",
     "next": "12.1.6",
     "prettier": "^2.6.2",
@@ -19,7 +19,7 @@
     "react-dom": "18.1.0"
   },
   "devDependencies": {
-    "@walkthru/data": "^0.0.9",
+    "@walkthru/data": "^0.0.10",
     "@rvxlab/tailwind-plugin-ios-full-height": "^1.1.0",
     "@tailwindcss/typography": "^0.5.2",
     "autoprefixer": "^10.4.7",
