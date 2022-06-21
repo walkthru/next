@@ -6,7 +6,7 @@ focus: 69
 center: 69
 ---
 
-Since Walkthru gets code from GitHub using its API, you'll need a *GitHub Personal Access Token*.
+Since WalkThru gets code from GitHub using its API, you'll need a *GitHub Personal Access Token*.
 
 These can be generated for free - instructions are [here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 

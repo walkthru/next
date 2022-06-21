@@ -811,15 +811,15 @@
     "@typescript-eslint/types" "5.27.0"
     "eslint-visitor-keys" "^3.3.0"
 
-"@walkthru/data@^0.0.10":
-  "integrity" "sha512-jGsAGweD2dL6t4zOkgUZ4OSnn18SVtk6nRuDR7op52PCUeTiEZ9wl82M/iCJnI1v9V38uAzRmuC0GOxUE0l8Gg=="
-  "resolved" "https://registry.npmjs.org/@walkthru/data/-/data-0.0.10.tgz"
-  "version" "0.0.10"
+"@walkthru/data@^0.1.0":
+  "integrity" "sha512-KzoGrdJGDsc2PW3vjwesIoNcVhWojfwF+BDdr5Xw0YLvX+jpn6gcj9eKrtxNExHNRVN1ncLfFL9O66EC8f+tmg=="
+  "resolved" "https://registry.npmjs.org/@walkthru/data/-/data-0.1.0.tgz"
+  "version" "0.1.0"
   dependencies:
     "front-matter" "^4.0.2"
     "octokit" "^1.7.1"
 
-"@walkthru/react@0.1.0":
+"@walkthru/react@^0.1.0":
   "integrity" "sha512-El632fqUAEicemgmUw3dZT81iAWro8H3EEXZN1f+D396yZIYW5ikTrYYD31+YNzBF7S0/LthtFs8JkEokbrb7A=="
   "resolved" "https://registry.npmjs.org/@walkthru/react/-/react-0.1.0.tgz"
   "version" "0.1.0"
@@ -1159,9 +1159,9 @@
     "watchpack" "^2.0.0-beta.10"
 
 "aws-sdk@^2.814.0":
-  "integrity" "sha512-uHYzZMGE+b50sWXaLhga4aD1SpB3+DEZclAkg9aYz2pDZlSDTOMh3uJ/ufsMBs7VcDKGS7mQRibCmCbwRGTIlg=="
-  "resolved" "https://registry.npmjs.org/aws-sdk/-/aws-sdk-2.1158.0.tgz"
-  "version" "2.1158.0"
+  "integrity" "sha512-zm3k/ufwZnkWc6M+HDz00CWuILot4L9kJ5VJsuDS9fwsT9To6k91Y1njCtIV4tcgcXvUru0Sbm4D0w5bc2847A=="
+  "resolved" "https://registry.npmjs.org/aws-sdk/-/aws-sdk-2.1159.0.tgz"
+  "version" "2.1159.0"
   dependencies:
     "buffer" "4.9.2"
     "events" "1.1.1"

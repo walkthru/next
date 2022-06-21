@@ -3,8 +3,6 @@ title: What is a walkthru?
 file: walkthru/walkthru-intro/what-is-a-walkthru.md
 ---
 
-A tutorial created with Walkthru is called a *walkthru* (with a small "w"). 
-
-The steps of a walkthru include text instructions (displayed here on the left side) and a code file (displayed on the right side).
+The steps of a tutorial created with WalkThru include text instructions (displayed here on the left side) and a code file (displayed on the right side).
 
 Steps are defined in markdown files with YAML frontmatter.

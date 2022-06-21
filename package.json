@@ -19,7 +19,7 @@
     "react-dom": "18.1.0"
   },
   "devDependencies": {
-    "@walkthru/data": "^0.0.10",
+    "@walkthru/data": "^0.1.0",
     "@rvxlab/tailwind-plugin-ios-full-height": "^1.1.0",
     "@tailwindcss/typography": "^0.5.2",
     "autoprefixer": "^10.4.7",
