@@ -3,7 +3,7 @@ title: Displaying a walkthru
 file: pages/[slug].js
 language: jsx
 focus: 38-45
-center: 42
+center: 41
 ---
 
 Okay, you've created a WalkThru tutorial. How do you now make it display in your app or docs site?

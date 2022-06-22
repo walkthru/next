@@ -5,12 +5,14 @@ focus: 4-5
 center: 4
 ---
 
-**WalkThru** provides a better way of explaining code on the web. 
+Code tutorials can be frustrating to write and to read. Common issues include:
 
-It's open source and can be embedded in any web page. It's great for:
+- Unclear link between code and explanation
+- Code snippets are either too long or too short
+- Errors in code snippets are hard to catch
 
-- Technical tutorials
-- Documentation
-- Teaching
+**WalkThru** is providing a better way of explaining code by utilizing interactive and dynamic aspects of the web.
 
-Let's take a quick tour of WalkThru where you'll find out what it can do and how you can use it.
+It's open source and can be embedded in any web page for technical tutorials, documentation, or teaching.
+
+Let's take a quick tour to find out how it works.
