@@ -819,10 +819,10 @@
     "front-matter" "^4.0.2"
     "octokit" "^1.7.1"
 
-"@walkthru/react@^0.1.1":
-  "integrity" "sha512-Awlb6n9nR8ayJQC4LCXM5XtVI4MvgVho3pme0x+sDjxepxITtU9VTuI8e/kq0RiyL3qoSgbxDsxCs/1Kn+iprw=="
-  "resolved" "https://registry.npmjs.org/@walkthru/react/-/react-0.1.1.tgz"
-  "version" "0.1.1"
+"@walkthru/react@^0.1.2":
+  "integrity" "sha512-o4f9C6EVKasWUs4BIJlXtfY77vegPFFIXqshkBYee2cJSaUKBME+Nhq4zxAolMjddnWAY1vMoT5MEZtaZDdnqg=="
+  "resolved" "https://registry.npmjs.org/@walkthru/react/-/react-0.1.2.tgz"
+  "version" "0.1.2"
   dependencies:
     "markdown-it" "^13.0.1"
     "prism-react-renderer" "^1.3.3"
