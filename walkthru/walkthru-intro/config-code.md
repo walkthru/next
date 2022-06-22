@@ -5,8 +5,8 @@ focus: 3-7
 center: 5
 ---
 
-As mentioned, the code files in a walkthru are pulled from a GitHub repo.
+As mentioned, the code files are pulled from your source code.
 
-You can specify this using the `code` property of the tutorial config file.
+You can specify a GitHub repo using the `code` property of the tutorial config file.
 
 The `owner` and `repo` sub properties specify the repo, while the `ref` property specifies a particular branch, tag, or commit.
