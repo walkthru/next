@@ -1,10 +1,10 @@
 ---
 title: Steps config
 file: walkthru/walkthru-intro/config.json
-focus: 15-30
-center: 23
+focus: 8-23
+center: 8
 ---
 
-The `steps` array is where we reference each step we've created. 
+The `steps` array contains the steps you wish to include and in which order.
 
-This tells WalkThru which steps to include and in which order.
+Note that step is identified by its file name.
