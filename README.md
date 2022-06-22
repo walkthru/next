@@ -2,7 +2,7 @@
 
 An example implementation of [WalkThru](https://github.com/walkthru/walkthru) using Next.js and Tailwind CSS. 
 
-Is also the source code of the [WalkThru live demo](https://walkthru.netlify.app).
+Is also the source code of the [WalkThru live demo](https://walkthru.netlify.app/walkthru-intro).
 
 
 ## Usage
