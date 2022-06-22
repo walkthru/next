@@ -13,7 +13,7 @@ Common issues include:
 - Code snippets are either too long or too short.
 - Errors in code snippets that are hard to catch.
 
-**WalkThru** is providing an easier and more accurate way of explaining code by utilizing interactive and dynamic aspects of the web.
+**WalkThru** provides an easier and more accurate way of explaining code by utilizing interactive and dynamic aspects of the web.
 
 It's open source and can be embedded in any web page for technical tutorials, documentation, or teaching.
 
