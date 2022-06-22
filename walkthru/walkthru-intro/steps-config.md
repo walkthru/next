@@ -7,4 +7,4 @@ center: 8
 
 The `steps` array contains the steps you wish to include and in which order.
 
-Note that step is identified by its file name.
+Note that a step is identified by its "slug" i.e. a unique ID derived from its file name.

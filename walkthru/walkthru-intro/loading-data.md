@@ -6,8 +6,8 @@ focus: 72-77
 center: 74
 ---
 
-This is a static site which uses the Next.js framework. Next has a special method `getStaticProps` for loading data needed by the page at build time. 
+This tutorial is embedded in a Next.js static site. Next has a special method `getStaticProps` for loading data needed by the page at build time. 
 
-This is the perfect place to compile and load the tutorial data. You can do this with the [WalkThru data module](https://github.com/walkthru/data).
+This is the perfect place to compile and load the tutorial data. You can do this with the `getData` method of the [WalkThru data module](https://github.com/walkthru/data).
 
 To load the data, you'll need the *tutorial slug* and a *GitHub Personal Access Token*.

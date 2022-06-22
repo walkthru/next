@@ -6,8 +6,8 @@ focus: 74-76
 center: 75
 ---
 
-When you have the slug and GitHub token, you can call the asynchronous `getData(slug, githubToken)` method which is supplied by the WalkThru module. 
+Now that you have the tutorial slug and GitHub token, you can call the asynchronous `getData` method. 
 
-This will compile the tutorial content including the code files, the instructions, and the tutorial config.
+This will compile the tutorial content including the downloaded source code files and markdown content.
 
-Next, we can display the data in the app. 
+With that done, you can display the data in the app. 
