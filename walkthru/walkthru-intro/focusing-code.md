@@ -5,7 +5,7 @@ focus: 4-5
 center: 4
 ---
 
-A useful feature of WalkThru is the ability to focus on specific lines of a code file.
+To make it easier to explain your code, you can focus on specific lines of a code file.
 
 To do this, set the `focus` property in the frontmatter and indicate the range of lines to focus on. 
 
