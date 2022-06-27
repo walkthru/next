@@ -17,6 +17,10 @@ function MyApp({ Component, pageProps }) {
   if (typeof document !== 'undefined') {
     disableScroll()
   }
+  const url = 'https://walkthru.netlify.app/'
+  const description =
+    'A better way to explain your code for docs, tutorials, and teaching'
+  const metaImage = 'https://walkthru.netlify.app/meta.png'
   return (
     <>
       <Head>
@@ -24,34 +28,19 @@ function MyApp({ Component, pageProps }) {
 
         <title>WalkThru</title>
         <meta name="title" content="WalkThru" />
-        <meta
-          name="description"
-          content="A better way of explaining code on the web."
-        />
+        <meta name="description" content={description} />
 
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://walkthru.netlify.app/" />
+        <meta property="og:url" content={url} />
         <meta property="og:title" content="WalkThru" />
-        <meta
-          property="og:description"
-          content="A better way of explaining code on the web."
-        />
-        <meta
-          property="og:image"
-          content="https://walkthru.netlify.app/meta.png"
-        />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={metaImage} />
 
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://walkthru.netlify.app/" />
+        <meta property="twitter:url" content={url} />
         <meta property="twitter:title" content="WalkThru" />
-        <meta
-          property="twitter:description"
-          content="A better way of explaining code on the web."
-        />
-        <meta
-          property="twitter:image"
-          content="https://walkthru.netlify.app/meta.png"
-        />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content={metaImage} />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1"
