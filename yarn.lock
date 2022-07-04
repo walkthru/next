@@ -437,9 +437,9 @@
     "fastq" "^1.6.0"
 
 "@octokit/app@^12.0.4":
-  "integrity" "sha512-lM3pIfx2h+UbvsXHFVs1ApJ9Rmp8LO4ciFSr5q/9MdHmhsH6WtwayieUn875xwB77IoR9r8czxxxASu2WCtdeA=="
-  "resolved" "https://registry.npmjs.org/@octokit/app/-/app-12.0.5.tgz"
-  "version" "12.0.5"
+  "integrity" "sha512-NqgLlaaf7Yy1s5ghhiiBRGzstICpBYnVX5ce3Klk3iKaGeXJDBLVyrJ6e6sYOiTXolFK56Nx5QWS6oUBgP6rSw=="
+  "resolved" "https://registry.npmjs.org/@octokit/app/-/app-12.0.7.tgz"
+  "version" "12.0.7"
   dependencies:
     "@octokit/auth-app" "^3.3.0"
     "@octokit/auth-unauthenticated" "^2.0.4"
@@ -547,9 +547,9 @@
     "universal-user-agent" "^6.0.0"
 
 "@octokit/oauth-app@^3.3.2", "@octokit/oauth-app@^3.5.1":
-  "integrity" "sha512-rZTXwttW2I9TRsAkNYX0KrWypIKdkrAKcrt5qF4BNn/QcfZG+aVQWSBQtpXOjw3TBW99Td7W+2KRQjX2lL8aBw=="
-  "resolved" "https://registry.npmjs.org/@octokit/oauth-app/-/oauth-app-3.6.2.tgz"
-  "version" "3.6.2"
+  "integrity" "sha512-mpoq71gvJL9/jzVVdzSHGo1ArwZY8cBx+NCQ5xgIQ3jEifLHFCNRp3ndN+TZSMPuU3rV45+lUGwpXk5/bDGbbw=="
+  "resolved" "https://registry.npmjs.org/@octokit/oauth-app/-/oauth-app-3.7.0.tgz"
+  "version" "3.7.0"
   dependencies:
     "@octokit/auth-oauth-app" "^4.0.0"
     "@octokit/auth-oauth-user" "^1.3.0"
@@ -579,24 +579,24 @@
     "@octokit/types" "^6.12.2"
     "btoa-lite" "^1.0.0"
 
-"@octokit/openapi-types@^12.4.0":
-  "integrity" "sha512-Npcb7Pv30b33U04jvcD7l75yLU0mxhuX2Xqrn51YyZ5WTkF04bpbxLaZ6GcaTqu03WZQHoO/Gbfp95NGRueDUA=="
-  "resolved" "https://registry.npmjs.org/@octokit/openapi-types/-/openapi-types-12.4.0.tgz"
-  "version" "12.4.0"
+"@octokit/openapi-types@^12.6.1":
+  "integrity" "sha512-zirGmxkSQuZIQYsOLtCxNoKi7ByKLwGhrGhHz6YUI7h/c8xOES9bEoHOeq4z81uNf2AGAqNfPW9i3GOrpgKoJQ=="
+  "resolved" "https://registry.npmjs.org/@octokit/openapi-types/-/openapi-types-12.6.1.tgz"
+  "version" "12.6.1"
 
 "@octokit/plugin-paginate-rest@^2.13.3", "@octokit/plugin-paginate-rest@^2.18.0":
-  "integrity" "sha512-hQ4Qysg2hNmEMuZeJkvyzM4eSZiTifOKqYAMsW8FnxFKowhuwWICSgBQ9Gn9GpUmgKB7qaf1hFvMjYaTAg5jQA=="
-  "resolved" "https://registry.npmjs.org/@octokit/plugin-paginate-rest/-/plugin-paginate-rest-2.19.0.tgz"
-  "version" "2.19.0"
+  "integrity" "sha512-NVNTK63yoTFp07GqISWK+uDfGH1CAPhQXS7LzsJBvaK5W+UlvG549pLZC55FK0FqANVl6q/9ra3SR5c97xF/sw=="
+  "resolved" "https://registry.npmjs.org/@octokit/plugin-paginate-rest/-/plugin-paginate-rest-2.21.1.tgz"
+  "version" "2.21.1"
   dependencies:
-    "@octokit/types" "^6.36.0"
+    "@octokit/types" "^6.38.2"
 
 "@octokit/plugin-rest-endpoint-methods@^5.14.0":
-  "integrity" "sha512-Gsw9+Xm56jVhfbJoy4pt6eOOyf8/3K6CAnx1Sl7U2GhZWcg8MR6YgXWnpfdF69S2ViMXLA7nfvTDAsZpFlkLRw=="
-  "resolved" "https://registry.npmjs.org/@octokit/plugin-rest-endpoint-methods/-/plugin-rest-endpoint-methods-5.15.0.tgz"
-  "version" "5.15.0"
+  "integrity" "sha512-RMHD3aJZvOpjR2fGzD2an6eU7LG8MsknhUHvP+wRUnKdbt7eDdhTMLQsZ4xsHZcLNsxPO/K4DDIZPhI2s571Ag=="
+  "resolved" "https://registry.npmjs.org/@octokit/plugin-rest-endpoint-methods/-/plugin-rest-endpoint-methods-5.16.1.tgz"
+  "version" "5.16.1"
   dependencies:
-    "@octokit/types" "^6.36.0"
+    "@octokit/types" "^6.38.2"
     "deprecation" "^2.3.1"
 
 "@octokit/plugin-retry@^3.0.9":
@@ -636,12 +636,12 @@
     "node-fetch" "^2.6.7"
     "universal-user-agent" "^6.0.0"
 
-"@octokit/types@^6.0.1", "@octokit/types@^6.0.3", "@octokit/types@^6.10.0", "@octokit/types@^6.12.2", "@octokit/types@^6.16.1", "@octokit/types@^6.27.1", "@octokit/types@^6.35.0", "@octokit/types@^6.36.0":
-  "integrity" "sha512-BXWQhFKRkjX4dVW5L2oYa0hzWOAqsEsujXsQLSdepPoDZfYdubrD1KDGpyNldGXtR8QM/WezDcxcIN1UKJMGPA=="
-  "resolved" "https://registry.npmjs.org/@octokit/types/-/types-6.37.0.tgz"
-  "version" "6.37.0"
+"@octokit/types@^6.0.1", "@octokit/types@^6.0.3", "@octokit/types@^6.10.0", "@octokit/types@^6.12.2", "@octokit/types@^6.16.1", "@octokit/types@^6.27.1", "@octokit/types@^6.35.0", "@octokit/types@^6.38.2":
+  "integrity" "sha512-McFegRKQ1qaMSnDt8ScJzv26IFR1zhXveYaqx8wF7QEgiy4GHMrnX4xbP+Yl+kAr12DCplL3WJq4xkeD1VMfmw=="
+  "resolved" "https://registry.npmjs.org/@octokit/types/-/types-6.38.2.tgz"
+  "version" "6.38.2"
   dependencies:
-    "@octokit/openapi-types" "^12.4.0"
+    "@octokit/openapi-types" "^12.6.1"
 
 "@octokit/webhooks-methods@^2.0.0":
   "integrity" "sha512-35cfQ4YWlnZnmZKmIxlGPUPLtbkF8lr/A/1Sk1eC0ddLMwQN06dOuLc+dI3YLQS+T+MoNt3DIQ0NynwgKPilig=="
@@ -820,10 +820,10 @@
     "@typescript-eslint/types" "5.27.0"
     "eslint-visitor-keys" "^3.3.0"
 
-"@walkthru/data@^0.1.0":
-  "integrity" "sha512-KzoGrdJGDsc2PW3vjwesIoNcVhWojfwF+BDdr5Xw0YLvX+jpn6gcj9eKrtxNExHNRVN1ncLfFL9O66EC8f+tmg=="
-  "resolved" "https://registry.npmjs.org/@walkthru/data/-/data-0.1.0.tgz"
-  "version" "0.1.0"
+"@walkthru/data@^0.1.2":
+  "integrity" "sha512-WH+TPARGqoaL7cCddWZfNqOCWKlk0nomRa/pJT1ZIKLniwuAK9feLMi3m8ctPDn3mB8DNeb/JcxATln9Eyt79A=="
+  "resolved" "https://registry.npmjs.org/@walkthru/data/-/data-0.1.2.tgz"
+  "version" "0.1.2"
   dependencies:
     "front-matter" "^4.0.2"
     "octokit" "^1.7.1"
@@ -1168,9 +1168,9 @@
     "watchpack" "^2.0.0-beta.10"
 
 "aws-sdk@^2.814.0":
-  "integrity" "sha512-zm3k/ufwZnkWc6M+HDz00CWuILot4L9kJ5VJsuDS9fwsT9To6k91Y1njCtIV4tcgcXvUru0Sbm4D0w5bc2847A=="
-  "resolved" "https://registry.npmjs.org/aws-sdk/-/aws-sdk-2.1159.0.tgz"
-  "version" "2.1159.0"
+  "integrity" "sha512-hUJzAqWVfNYpct1S+GjyPIc2s+GZcAhbWVqIG4qbLYZ3+sBTcjv3lLH5zx7K+qcTGINDU0g4EsMi6hIrAU+blg=="
+  "resolved" "https://registry.npmjs.org/aws-sdk/-/aws-sdk-2.1167.0.tgz"
+  "version" "2.1167.0"
   dependencies:
     "buffer" "4.9.2"
     "events" "1.1.1"
@@ -3185,9 +3185,9 @@
     "es-abstract" "^1.19.1"
 
 "octokit@^1.7.1":
-  "integrity" "sha512-HtArk9ttGy5effKNiaqKCirR6VSZoYjqgLgvVm/1mSRR4WYmww5DHjLnZlCbvj8+DwBLLLduJ3XnX/SPCCcp6A=="
-  "resolved" "https://registry.npmjs.org/octokit/-/octokit-1.8.0.tgz"
-  "version" "1.8.0"
+  "integrity" "sha512-xBLKFIivbl7wnLwxzLYuDO/JDNYxdyxoSjFrl/QMrY/fwGGQYYklvKUDTUyGMU0aXPrQtJ0IZnG3BXpCkDQzWg=="
+  "resolved" "https://registry.npmjs.org/octokit/-/octokit-1.8.1.tgz"
+  "version" "1.8.1"
   dependencies:
     "@octokit/app" "^12.0.4"
     "@octokit/core" "^3.5.1"
