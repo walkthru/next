@@ -1,6 +1,6 @@
 ---
 title: Displaying an image
-file: walkthru/walkthru-intro/code-and-image.md
+file: walkthru/walkthru-intro/displaying-image.md
 image:
     src: github-screenshot.png
 focus: 3-5
