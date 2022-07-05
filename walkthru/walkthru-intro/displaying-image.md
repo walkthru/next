@@ -1,7 +1,14 @@
 ---
 title: Displaying an image
+file: walkthru/walkthru-intro/code-and-image.md
 image:
-    src: test-img-2.png
+    src: github-screenshot.png
+focus: 3-5
+center: 4
 ---
 
-It's possible to display an image instead of a code file. This is useful for when you want to show a screenshot or diagram.
+In addition to code, you can also show an image in a step. 
+
+This is useful if you want to show how code affects a UI, for example.
+
+To do this, add the `image` property to the frontmatter and be sure to add a `src` subproperty.
