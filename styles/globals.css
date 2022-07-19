@@ -5,22 +5,3 @@
 html, body {
   overflow: hidden;
 }
-
-.prose a[target="_blank"]:after {
-  content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==);
-  margin: 0 1px 0 4px;
-}
-
-.prose code:not([class*=language-]) {
-  color: rgb(249, 38, 114);
-  font-weight: 400;
-  font-size: .875em;
-  padding: 1px 3px;
-  background-color: #f3f4f6;
-  border-radius: 0.25rem;
-}
-
-.prose code:not([class*=language-]):before,
-.prose code:not([class*=language-]):after {
-  content: ''
-}
