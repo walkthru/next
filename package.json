@@ -10,6 +10,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@walkthru/data": "^0.2.0-beta.6",
     "@walkthru/react": "^0.2.0-beta.6",
     "html-loader": "^3.1.0",
     "next": "12.1.6",
@@ -21,7 +22,6 @@
   "devDependencies": {
     "@rvxlab/tailwind-plugin-ios-full-height": "^1.1.0",
     "@tailwindcss/typography": "^0.5.2",
-    "@walkthru/data": "^0.2.0-beta.6",
     "autoprefixer": "^10.4.7",
     "eslint": "8.16.0",
     "eslint-config-next": "12.1.6",
