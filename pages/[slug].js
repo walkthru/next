@@ -7,29 +7,9 @@ const instructionsStyle = `
   color: rgb(55, 65, 81);
   font-size: 14px;
   line-height: 24px;
-  font-family: ui-sans-serif, system-ui, -apple-system, "system-ui", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  
+  font-family: ui-sans-serif, system-ui, -apple-system, "system-ui", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";  
   li {
     margin: 3px 0;
-  }
-  
-  a[target="_blank"]:after {
-    content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==);
-    margin: 0 1px 0 4px;
-  }
-  
-  code:not([class*=language-]) {
-    color: rgb(249, 38, 114);
-    font-weight: 400;
-    font-size: .875em;
-    padding: 1px 3px;
-    background-color: #f3f4f6;
-    border-radius: 0.25rem;
-  }
-
-  code:not([class*=language-]):before,
-  code:not([class*=language-]):after {
-    content: ''
   }
 `
 
