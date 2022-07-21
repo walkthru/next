@@ -1,6 +1,6 @@
 {
   "name": "walkthru-next",
-  "version": "0.2.0-beta.6",
+  "version": "0.2.0-beta.8",
   "private": false,
   "scripts": {
     "dev": "next-remote-watch walkthru/**/*.*",
@@ -11,13 +11,13 @@
   },
   "dependencies": {
     "@walkthru/data": "^0.2.0-beta.6",
-    "@walkthru/react": "^0.2.0-beta.6",
+    "@walkthru/react": "^0.2.0-beta.8",
     "html-loader": "^3.1.0",
     "next": "12.1.6",
     "prettier": "^2.6.2",
     "raw-loader": "^4.0.2",
-    "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "@rvxlab/tailwind-plugin-ios-full-height": "^1.1.0",
